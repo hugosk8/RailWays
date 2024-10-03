@@ -14,16 +14,26 @@
         @vite(['resources/css/style.css', 'resources/js/app.js'])
     </head>
     <body>
-        <div>
+        <header>
             <div>
                 <a href="/">
                     <x-application-logo />
                 </a>
             </div>
-
-            <div>
+            <nav>
+                <ul>
+                    <li><a href="/">Accueil</a></li>
+                    <li><a href="/login">Connexion</a></li>
+                    <li><a href="/register">Inscription</a></li>
+                    {{-- <li><a href="{{ route('users.index') }}">Liste</a></li>
+                    <li><a href="{{ route('users.create') }}">Ajouter</a></li> --}}
+                </ul>
+            </nav>
+        </header>
+        <main>
+            <div class="container">
                 @yield('content')
             </div>
-        </div>
+        </main>
     </body>
 </html>

@@ -1,3 +1,56 @@
-x-application-logo {
+body {
+    margin: 0;
+    padding: 0;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+/* Header */
+header {
+    background-color: #8046b9; 
+    padding: 20px; 
+    display: flex;
+    align-items: center;
+}
+
+header div {
+    width: 25%;
+}
+
+header nav {
+    width: 75%;
+}
+
+nav ul {
+    display: flex; 
+    justify-content: flex-end; 
+    gap: 15px;
+}
+
+nav ul li a {
+    color: white;
+    font-size: 18px;
+    font-weight: 600;
+    transition: color 0.3s;
+}
+
+nav ul li a:hover {
+    color: #cf9eff; 
+}
+
+header svg {
     width: 50px;
+}
+
+/* Main */
+.container {
+    padding: 20px;
+    text-align: center;
 }

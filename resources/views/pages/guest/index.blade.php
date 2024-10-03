@@ -1,6 +1,6 @@
 @extends('layouts.guest')
 
-@section('title', 'home')
+@section('title', 'Accueil Guest')
 
 @section('content')
     <h1>Accueil non-connecté</h1>

@@ -1,4 +1,8 @@
-<x-guest-layout>
+@extends('layouts.guest')
+
+@section('title', 'Login')
+
+@section('content')
     <!-- Session Status -->
     <x-auth-session-status :status="session('status')" />
 
@@ -44,4 +48,4 @@
             </x-primary-button>
         </div>
     </form>
-</x-guest-layout>
+@endsection
