@@ -21,7 +21,7 @@
                     <x-application-logo />
                 </a>
             </div>
-            @include('layouts.guest_navigation')
+            @include('layouts.navigations.guest_navigation')
             {{-- <nav>
                 <ul>
                     <li><a href="{{ route('users.index') }}">Liste</a></li>

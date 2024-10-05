@@ -18,6 +18,12 @@ Route::get('/', function () {
     return view('pages/index');
 })->name('home');
 
+// Route::group(['middleware' => ['admin']], function() {
+//     Route::group(['middleware' => ['admin']], function () {
+//         Route::get('PATH_DE_LA_ROUTE_AVEC_/', [AdminController::class, 'index'])->name('PATH_DE_LA_ROUTE_AVEC_.');
+//     });
+// });
+
 Route::get('/contact', function () {
     return view('pages/contact');
 })->name('contact');

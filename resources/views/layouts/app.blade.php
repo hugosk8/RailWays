@@ -21,7 +21,7 @@
                     <x-application-logo />
                 </a>
             </div>
-            @include('layouts.app_navigation')
+            @include('layouts.navigations.app_navigation')
         </header>
 
         <main>
