@@ -11,29 +11,30 @@
         <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
 
         <!-- Scripts -->
-        @vite(['resources/css/guest/style.css','resources/css/common.css', 'resources/js/app.js'])
+        @vite(['resources/css/app/style.css','resources/css/common.css', 'resources/js/app.js'])
     </head>
     <body>
+
         <header>
             <div>
                 <a href="/">
                     <x-application-logo />
                 </a>
             </div>
-            <nav>
+            @include('layouts.guest_navigation')
+            {{-- <nav>
                 <ul>
-                    <li><a href="/">Accueil</a></li>
-                    <li><a href="/login">Connexion</a></li>
-                    <li><a href="/register">Inscription</a></li>
-                    {{-- <li><a href="{{ route('users.index') }}">Liste</a></li>
-                    <li><a href="{{ route('users.create') }}">Ajouter</a></li> --}}
+                    <li><a href="{{ route('users.index') }}">Liste</a></li>
+                    <li><a href="{{ route('users.create') }}">Ajouter</a></li>
                 </ul>
-            </nav>
+            </nav> --}}
         </header>
+
         <main>
             <div class="container">
                 @yield('content')
             </div>
         </main>
+
     </body>
 </html>

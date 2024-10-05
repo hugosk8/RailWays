@@ -1,4 +1,35 @@
 <nav x-data="{ open: false }">
+    <ul>
+        <li>
+            <x-nav-link :href="route('home')" :active="request()->routeIs('home')">
+                {{ __('Accueil') }}
+            </x-nav-link>
+        </li>
+        <li>
+            <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
+                {{ __('Tableau de bord') }}
+            </x-nav-link>
+        </li>
+        <li>
+            <form method="POST" action="{{ route('logout') }}">
+                @csrf
+                <x-dropdown-link :href="route('logout')"
+                        onclick="event.preventDefault();
+                                    this.closest('form').submit();">
+                    {{ __('Déconnexion') }}
+                </x-dropdown-link>
+            </form>
+        </li>
+        <li>
+            <x-nav-link :href="route('contact')" :active="request()->routeIs('contact')">
+                {{ __('Contact') }}
+            </x-nav-link>
+        </li>
+    </ul>
+</nav>
+
+
+{{-- <nav x-data="{ open: false }">
     <!-- Primary Navigation Menu -->
     <div>
         <div>
@@ -97,4 +128,4 @@
             </div>
         </div>
     </div>
-</nav>
+</nav> --}}
