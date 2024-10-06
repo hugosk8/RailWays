@@ -1,6 +1,9 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\admin\AdminController;
+use App\Http\Controllers\customer\CustomerController;
+use App\Http\Controllers\guest\GuestController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,28 +17,28 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('pages/index');
-})->name('home');
+// For everybody
+Route::group([], function () {
+    Route::get('/', [GuestController::class, 'index'])->name('home');
+    Route::get('/contact', [GuestController::class, 'contact'])->name('contact');
+});
 
-// Route::group(['middleware' => ['admin']], function() {
-//     Route::group(['middleware' => ['admin']], function () {
-//         Route::get('PATH_DE_LA_ROUTE_AVEC_/', [AdminController::class, 'index'])->name('PATH_DE_LA_ROUTE_AVEC_.');
-//     });
-// });
+// For connected users
+Route::middleware(['auth', 'verified', 'customer'])->group(function () {
+    // User dashboard
+    Route::get('/dashboard', [CustomerController::class, 'index'])->name('dashboard');
 
-Route::get('/contact', function () {
-    return view('pages/contact');
-})->name('contact');
+    // User profile
+    Route::prefix('profile')->group(function () {
+        Route::get('/', [ProfileController::class, 'edit'])->name('profile.edit');
+        Route::patch('/', [ProfileController::class, 'update'])->name('profile.update');
+        Route::delete('/', [ProfileController::class, 'destroy'])->name('profile.destroy');
+    });
+});
 
-Route::get('/dashboard', function () {
-    return view('pages/customer/dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
-
-Route::middleware('auth')->group(function () {
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+// For administrator
+Route::prefix('admin')->middleware(['auth', 'admin'])->group(function () {
+    Route::get('/dashboard', [AdminController::class, 'index'])->name('admin.dashboard'); // ?
 });
 
 require __DIR__.'/auth.php';
