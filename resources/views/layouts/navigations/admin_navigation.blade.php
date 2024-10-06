@@ -6,6 +6,11 @@
             </x-nav-link>
         </li>
         <li>
+            <x-nav-link :href="route('admin.users_list')" :active="request()->routeIs('home')">
+                {{ __('Liste') }}
+            </x-nav-link>
+        </li>
+        <li>
             {{-- Compte
             <ul>
                 <li>

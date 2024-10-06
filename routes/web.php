@@ -38,7 +38,8 @@ Route::middleware(['auth', 'verified', 'customer'])->group(function () {
 
 // For administrator
 Route::prefix('admin')->middleware(['auth', 'admin'])->group(function () {
-    Route::get('/dashboard', [AdminController::class, 'index'])->name('admin.dashboard'); // ?
+    Route::get('/dashboard', [AdminController::class, 'index'])->name('admin.dashboard');
+    Route::get('/users_list', [AdminController::class, 'show_users_list'])->name('admin.users_list');
 });
 
 require __DIR__.'/auth.php';

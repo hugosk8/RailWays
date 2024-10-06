@@ -1,4 +1,4 @@
-@extends(Auth::check() ? 'layouts.app': 'layouts.guest')
+@extends(auth()->check() && auth()->user()->role === 'admin' ? 'layouts.admin' : (auth()->check() ? 'layouts.app' : 'layouts.guest'))
 
 @section('title', 'Accueil Guest')
 

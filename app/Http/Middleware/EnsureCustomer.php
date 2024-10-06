@@ -21,5 +21,7 @@ class EnsureCustomer
         if ($user->role === 'admin') {
             return redirect()->route('admin.dashboard')->with('error', 'Vous n\'avez pas accès à cette page.');
         }
+        
+        return $next($request);
     }
 }
