@@ -1,6 +1,6 @@
 @extends('layouts.admin')
 
-@section('title', 'Dashboard')
+@section('title', 'Ajouter un utilisateur')
 
 @section('content')
     @if ($errors->any())

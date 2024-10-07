@@ -70,7 +70,7 @@ class AdminController extends Controller
         $user = User::findOrFail($id);
         $user->delete();
 
-        return redirect()->route('users.index')->with('success', 'Utilisateur ' . $user->name . ' supprimé avec succès.');
+        return redirect()->route('admin.user_list')->with('success', 'Utilisateur ' . $user->name . ' supprimé avec succès.');
     }
 
     public function show_users_list() {

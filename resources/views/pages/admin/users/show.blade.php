@@ -20,7 +20,7 @@
         <p><strong>ID :</strong> {{ $user->id }}</p> 
         <p><strong>Email :</strong> {{ $user->email }}</p>
         <p><strong>Rôle :</strong> {{ ucfirst($user->role) }}</p>
-        <p><strong>Date de création :</strong> {{ $user->created_at }}</p>
-        <p><strong>derniere modification :</strong> {{ $user->updated_at }}</p>
+        <p><strong>Date de création :</strong> {{ $user->created_at->format('d/m/Y') }}</p>
+        <p><strong>derniere modification :</strong> {{ $user->updated_at->format('d/m/Y') }}</p>
     </div>
 @endsection
