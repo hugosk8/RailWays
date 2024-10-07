@@ -11,24 +11,19 @@
             </x-nav-link>
         </li>
         <li>
-            {{-- Compte
-            <ul>
-                <li>
-                    <x-dropdown-link :href="route('profile.edit')">
-                        {{ __('Profile') }}
-                    </x-dropdown-link>
-                </li>
-                <li> --}}
-                    <form method="POST" action="{{ route('logout') }}">
-                        @csrf
-                        <x-dropdown-link :href="route('logout')"
-                                onclick="event.preventDefault();
-                                            this.closest('form').submit();">
-                            {{ __('Déconnexion') }}
-                        </x-dropdown-link>
-                    </form>
-                {{-- </li>
-            </ul> --}}
+            <x-nav-link :href="route('admin.users.create')" :active="request()->routeIs('admin.users.create')">
+                {{ __('Ajouter') }}
+            </x-nav-link>
+        </li>
+        <li>
+            <form method="POST" action="{{ route('logout') }}">
+                @csrf
+                <x-dropdown-link :href="route('logout')"
+                        onclick="event.preventDefault();
+                                    this.closest('form').submit();">
+                    {{ __('Déconnexion') }}
+                </x-dropdown-link>
+            </form>
         </li>
     </ul>
 </nav>

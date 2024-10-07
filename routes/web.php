@@ -25,10 +25,8 @@ Route::group([], function () {
 
 // For connected users
 Route::middleware(['auth', 'verified', 'customer'])->group(function () {
-    // User dashboard
     Route::get('/dashboard', [CustomerController::class, 'index'])->name('dashboard');
 
-    // User profile
     Route::prefix('profile')->group(function () {
         Route::get('/', [ProfileController::class, 'edit'])->name('profile.edit');
         Route::patch('/', [ProfileController::class, 'update'])->name('profile.update');
@@ -37,9 +35,10 @@ Route::middleware(['auth', 'verified', 'customer'])->group(function () {
 });
 
 // For administrator
-Route::prefix('admin')->middleware(['auth', 'admin'])->group(function () {
-    Route::get('/dashboard', [AdminController::class, 'index'])->name('admin.dashboard');
-    Route::get('/users_list', [AdminController::class, 'show_users_list'])->name('admin.users_list');
+Route::prefix('admin')->middleware(['auth', 'admin'])->name('admin.')->group(function () {
+    Route::get('/dashboard', [AdminController::class, 'index'])->name('dashboard');
+    Route::get('/users_list', [AdminController::class, 'show_users_list'])->name('users_list');
+    Route::resource('users', AdminController::class);
 });
 
 require __DIR__.'/auth.php';

@@ -5,19 +5,22 @@
 @section('content')
     <h1>User list</h1>
 
-    <ul>
-        @foreach ($users as $user)
-        <ul>
-            <li>
-                {{ $user->name }}
-            </li>
-            <li>
-                {{ $user->email }}
-            </li>
-            <li>
-                {{ $user->role }}
-            </li>
-        </ul>
-        @endforeach
-    </ul>
+    <table>
+        <thead>
+            <tr>
+                <td>Nom</td>
+                <td>Role</td>
+                <td>Email</td>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach ($users as $user)
+            <tr>
+                <td>{{ $user->name }}</td>
+                <td>{{ $user->email }}</td>
+                <td>{{ $user->role }}</td>
+            </tr>
+            @endforeach
+        </tbody>
+    </table>
 @endsection
