@@ -1,40 +1,30 @@
 <nav x-data="{ open: false }">
     <ul>
         <li>
-            <x-nav-link :href="route('home')" :active="request()->routeIs('home')">
+            <x-nav-link :href="route('home')"  class="{{ request()->routeIs('home') ? 'active-link' : '' }}">
                 {{ __('Accueil') }}
             </x-nav-link>
         </li>
         <li>
-            <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
+            <x-nav-link :href="route('dashboard')"  class="{{ request()->routeIs('dashboard') ? 'active-link' : '' }}">
                 {{ __('Tableau de bord') }}
             </x-nav-link>
         </li>
         <li>
-            <x-nav-link :href="route('contact')" :active="request()->routeIs('contact')">
+            <x-nav-link :href="route('contact')"  class="{{ request()->routeIs('contact') ? 'active-link' : '' }}">
                 {{ __('Contact') }}
             </x-nav-link>
         </li>
         <li>
-            {{-- Compte
-            <ul>
-                <li>
-                    <x-dropdown-link :href="route('profile.edit')">
-                        {{ __('Profile') }}
-                    </x-dropdown-link>
-                </li>
-                <li> --}}
-                    <form method="POST" action="{{ route('logout') }}">
-                        @csrf
-                        <x-dropdown-link :href="route('logout')"
-                                onclick="event.preventDefault();
-                                            this.closest('form').submit();">
-                            {{ __('Déconnexion') }}
-                        </x-dropdown-link>
-                    </form>
-                {{-- </li>
-            </ul> --}}
-        </li>
+            <form method="POST" action="{{ route('logout') }}">
+                @csrf
+                <x-dropdown-link :href="route('logout')"
+                        onclick="event.preventDefault();
+                                    this.closest('form').submit();">
+                    {{ __('Déconnexion') }}
+                </x-dropdown-link>
+            </form>
+    </li>
     </ul>
 </nav>
 

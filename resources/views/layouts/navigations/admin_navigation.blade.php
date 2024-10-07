@@ -1,17 +1,17 @@
 <nav x-data="{ open: false }">
     <ul>
         <li>
-            <x-nav-link :href="route('home')" :active="request()->routeIs('home')">
+            <x-nav-link :href="route('home')" class="{{ request()->routeIs('home') ? 'active-link' : '' }}">
                 {{ __('Accueil') }}
             </x-nav-link>
         </li>
         <li>
-            <x-nav-link :href="route('admin.users_list')" :active="request()->routeIs('home')">
+            <x-nav-link :href="route('admin.users_list')" class="{{ request()->routeIs('admin.users_list') ? 'active-link' : '' }}">
                 {{ __('Liste') }}
             </x-nav-link>
         </li>
         <li>
-            <x-nav-link :href="route('admin.users.create')" :active="request()->routeIs('admin.users.create')">
+            <x-nav-link :href="route('admin.users.create')" class="{{ request()->routeIs('admin.users.create') ? 'active-link' : '' }}">
                 {{ __('Ajouter') }}
             </x-nav-link>
         </li>

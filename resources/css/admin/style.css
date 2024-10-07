@@ -5,6 +5,10 @@ table {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
+table a {
+    color: blue;
+}
+
 thead {
     background-color: #8046b9;
     color: #fff;

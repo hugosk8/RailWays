@@ -33,7 +33,7 @@ class AdminController extends Controller
                 'password' => Hash::make($validated['password']),
                 'role' => $validated['role']
             ]);
-            return redirect()->route('admin.users_list')->with('success', 'Utilisateur créé avec succès.');
+            return redirect()->route('admin.user_list')->with('success', 'Utilisateur créé avec succès.');
     }
 
     public function show(string $id){
