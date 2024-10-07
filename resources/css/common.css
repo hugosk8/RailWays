@@ -87,7 +87,7 @@ header nav ul li a:hover {
     border-radius: 5px;
 }
 
-form button {
+form .btn {
     color: white;
     background-color: #8046b9;
     border: none;
@@ -96,7 +96,7 @@ form button {
     width: 100%;
 }
 
-form button:hover {
+form .btn:hover {
     background-color: #a865eb;
 }
 

@@ -52,6 +52,6 @@
             </select>
         </div>
 
-        <button type="submit" class="btn btn-primary">Mettre à jour</button>
+        <button type="submit" class="btn">Mettre à jour</button>
     </form>
 @endsection

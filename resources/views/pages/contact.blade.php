@@ -27,7 +27,7 @@
                 <textarea name="message" cols="30" rows="10"></textarea>
             </div>
 
-            <button type="submit">Envoyer</button>
+            <button class="btn" type="submit">Envoyer</button>
         </form>
     </div>
 @endsection

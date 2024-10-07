@@ -117,3 +117,11 @@ tbody tr:hover {
     background-color: gray;
     color: white;
 }
+
+.btn-confirm:hover{
+    background-color: rgb(150, 39, 39);
+}
+
+.btn-cancel:hover{
+    background-color: rgb(165, 165, 165);
+}

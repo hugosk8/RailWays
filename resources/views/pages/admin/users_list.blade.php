@@ -66,7 +66,7 @@
 <script>
     function confirmDelete(userId) {
         const deleteForm = document.getElementById('deleteForm');
-        deleteForm.action = `admin.users/${userId}`;
+        deleteForm.action = `users/${userId}`;
 
         document.getElementById('deleteModal').style.display = 'block';
     }

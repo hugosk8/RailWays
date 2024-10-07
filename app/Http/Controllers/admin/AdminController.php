@@ -33,7 +33,7 @@ class AdminController extends Controller
                 'password' => Hash::make($validated['password']),
                 'role' => $validated['role']
             ]);
-            return redirect()->route('admin.user_list')->with('success', 'Utilisateur créé avec succès.');
+            return redirect()->route('admin.users_list')->with('success', 'Utilisateur créé avec succès.');
     }
 
     public function show(string $id){
@@ -63,14 +63,14 @@ class AdminController extends Controller
             'role' => $validated['role'] ?? $user->role
         ]);
 
-        return redirect()->route('users.index')->with('success', 'Utilisateur modifié avec succès.');
+        return redirect()->route('admin.users_list')->with('success', 'Utilisateur modifié avec succès.');
     }
 
     public function destroy(string $id){
         $user = User::findOrFail($id);
         $user->delete();
 
-        return redirect()->route('admin.user_list')->with('success', 'Utilisateur ' . $user->name . ' supprimé avec succès.');
+        return redirect()->route('admin.users_list')->with('success', "Utilisateur $user->email supprimé avec succès.");
     }
 
     public function show_users_list() {
