@@ -3,7 +3,17 @@
 @section('title', 'Liste des utilisateurs')
 
 @section('content')
-    <h1>User list</h1>
+    @if (session('error'))
+        <div class="error-message">
+            {{ session('error') }}
+        </div>
+    @elseif (session('success'))
+        <div class="success-message">
+            {{ session('success') }}
+        </div>
+    @endif
+
+    <h1>Liste des utilisateurs</h1>
 
     <table>
         <thead>

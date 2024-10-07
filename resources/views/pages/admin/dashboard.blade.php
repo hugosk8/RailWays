@@ -7,6 +7,10 @@
         <div class="error-message">
             {{ session('error') }}
         </div>
+    @elseif (session('success'))
+        <div class="success-message">
+            {{ session('success') }}
+        </div>
     @endif
 
     <h1>Admin Dashboard</h1>
