@@ -40,6 +40,21 @@
                 </li>
             </ul>
         </li>
+        <li class="{{ request()->routeIs('admin.appointments_list', 'admin.appointments.create') ? 'nav-item dropdown active-link' : 'nav-item dropdown' }}">
+            Rendez-vous
+            <ul class="dropdown-menu">
+                <li>
+                    <x-nav-link :href="route('admin.appointments_list')" class="{{ request()->routeIs('admin.appointments_list') ? 'active-link' : '' }}">
+                        {{ __('Liste') }}
+                    </x-nav-link>
+                </li>
+                <li>
+                    <x-nav-link :href="route('admin.appointments.create')" class="{{ request()->routeIs('admin.appointments.create') ? 'active-link' : '' }}">
+                        {{ __('Ajouter') }}
+                    </x-nav-link>
+                </li>
+            </ul>
+        </li>
         <li>
             <form method="POST" action="{{ route('logout') }}">
                 @csrf

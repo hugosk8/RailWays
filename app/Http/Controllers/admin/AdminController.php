@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Appointment;
 use App\Models\User;
 use App\Models\Service;
 use Illuminate\Support\Facades\Auth;
@@ -22,5 +23,10 @@ class AdminController extends Controller
     public function show_services_list() {
         $services = Service::all();
         return view('pages.admin.services_list', compact('services'));
+    }
+
+    public function show_appointments_list() {
+        $appointments = Appointment::all();
+        return view('pages.admin.appointments_list', compact('appointments'));
     }
 }
