@@ -25,9 +25,9 @@ class ServiceController extends Controller
                 'name' => $validated['name'],
                 'description' => $validated['description'],
                 'price' => $validated['price'],
-                'duration' => $validated['duration'],
+                'duration' => $validated['duration']
             ]);
-            return redirect()->route('admin.dashboard')->with('success', 'Service créé avec succès.');
+            return redirect()->route('admin.services_list')->with('success', 'Service créé avec succès.');
     }
 
     public function show(string $id){
@@ -35,35 +35,35 @@ class ServiceController extends Controller
         return view('pages.admin.services.show', compact('service'));
     }
 
-    // public function edit(string $id){
-    //     $user = User::findOrFail($id);
-    //     return view('pages.admin.users.edit', compact('user'));
-    // }
+    public function edit(string $id){
+        $service = Service::findOrFail($id);
+        return view('pages.admin.services.edit', compact('service'));
+    }
 
-    // public function update(Request $request, string $id){
-    //     $user = User::findOrFail($id);
+    public function update(Request $request, string $id){
+        $service = Service::findOrFail($id);
         
-    //     $validated = $request->validate([
-    //         'name' => 'sometimes|nullable|string|max:100',
-    //         'email' => 'sometimes|nullable|email|unique:users,email,' . $user->id,
-    //         'password' => 'sometimes|nullable|string|min:8|confirmed',
-    //         'role' => 'sometimes|in:customer,employee,admin'
-    //     ]);
+        $validated = $request->validate([
+            'name' => 'sometimes|nullable|string|max:100',
+            'description' => 'sometimes|nullable|string',
+            'price' => 'sometimes|nullable|numeric|min:0',
+            'duration' => 'sometimes|nullable|integer|min:0'
+        ]);
 
-    //     $user->update([
-    //         'name' => $validated['name'] ?? $user->name,
-    //         'email' => $validated['email'] ?? $user->email,
-    //         // 'password' => isset($validated['password']) ? Hash::make($validated['password']) : $user->password,
-    //         'role' => $validated['role'] ?? $user->role
-    //     ]);
+        $service->update([
+            'name' => $validated['name'] ?? $service->name,
+            'description' => $validated['description'] ?? $service->description,
+            'price' => $validated['price'] ?? $service->price,
+            'duration' => $validated['duration'] ?? $service->duration
+        ]);
 
-    //     return redirect()->route('admin.users_list')->with('success', "Utilisateur $user->name modifié avec succès.");
-    // }
+        return redirect()->route('admin.services_list')->with('success', "Service $service->name modifié avec succès.");
+    }
 
-    // public function destroy(string $id){
-    //     $user = User::findOrFail($id);
-    //     $user->delete();
+    public function destroy(string $id){
+        $service = Service::findOrFail($id);
+        $service->delete();
 
-    //     return redirect()->route('admin.users_list')->with('success', "Utilisateur $user->email supprimé avec succès.");
-    // }
+        return redirect()->route('admin.services_list')->with('success', "Service $service->name supprimé avec succès.");
+    }
 }
