@@ -24,7 +24,8 @@
                     <td>ID</td>
                     <td>Client</td>
                     <td>Prestation</td>
-                    <td>Date / Heure</td>
+                    <td>Date</td>
+                    <td>Heure</td>
                     <td>Statut</td>
                     <td>Actions</td>
                 </tr>
@@ -34,12 +35,17 @@
                 <tr>
                     <td>{{ $appointment->id }}</td>
                     <td>
-                        <a href="{{ route('admin.appointments.show', $appointment->id) }}">
-                            {{ $appointment->user_id }}
+                        <a href="{{ route('admin.users.show', $appointment->user->id) }}">
+                            {{ $appointment->user->name }}
                         </a>
                     </td>
-                    <td>{{ $appointment->service_id }}</td>
-                    <td>{{ $appointment->appointment_date . " " . $appointment->appointment_time }}</td>
+                    <td>
+                        <a href="{{ route('admin.services.show', $appointment->service->id) }}">
+                            {{ $appointment->service->name }}
+                        </a>
+                    </td>
+                    <td>{{ $appointment->appointment_date }}</td>
+                    <td>{{ $appointment->appointment_time }}</td>
                     <td>{{ $appointment->status }}</td>
                     <td class="action-buttons">
                         <button type="button" class="btn-delete" onclick="confirmDelete({{$appointment->id}})">Supprimer</button>

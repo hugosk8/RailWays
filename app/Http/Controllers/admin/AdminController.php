@@ -26,7 +26,7 @@ class AdminController extends Controller
     }
 
     public function show_appointments_list() {
-        $appointments = Appointment::all();
+        $appointments = Appointment::with(['user', 'service'])->get();
         return view('pages.admin.appointments_list', compact('appointments'));
     }
 }
