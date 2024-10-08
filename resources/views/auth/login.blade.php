@@ -3,10 +3,10 @@
 @section('title', 'Login')
 
 @section('content')
-    <!-- Session Status -->
     <x-auth-session-status :status="session('status')" />
 
     <div class="form-container">
+        <h1>Connexion :</h1>
         <form method="POST" action="{{ route('login') }}">
             @csrf
     

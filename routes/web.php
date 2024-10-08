@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\admin\AdminController;
+use App\Http\Controllers\admin\UserController;
 use App\Http\Controllers\customer\CustomerController;
 use App\Http\Controllers\guest\GuestController;
 use Illuminate\Support\Facades\Route;
@@ -38,7 +39,7 @@ Route::middleware(['auth', 'verified', 'customer'])->group(function () {
 Route::prefix('admin')->middleware(['auth', 'admin'])->name('admin.')->group(function () {
     Route::get('/dashboard', [AdminController::class, 'index'])->name('dashboard');
     Route::get('/users_list', [AdminController::class, 'show_users_list'])->name('users_list');
-    Route::resource('users', AdminController::class);
+    Route::resource('users', UserController::class);
 });
 
 require __DIR__.'/auth.php';

@@ -4,6 +4,8 @@
 
 @section('content')
     <div class="form-container">
+        <h1>Inscription :</h1>
+
         <form method="POST" action="{{ route('register') }}">
             @csrf
 

@@ -65,17 +65,3 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
 
-
-
-J'ai ajouté -">name('admin.')" au prefix admin et ça a fonctionné pour admin.users.create mais suite a ce changement, c'est la route "admin.users_list" qui n'etais plus valide, pour la rerendre valide il faut la modifier comme ceci : "admin.admin.users_list". Comment ça se fait que les 2 routes sont differentes alors qu'elles sont dans le meme Prefix? Et eviter d'avoir 2 fois admin sur cette route
-
-
-Route::prefix('admin')->middleware(['auth', 'admin'])->name('admin.')->group(function () {
-    Route::get('/dashboard', [AdminController::class, 'index'])->name('admin.dashboard');
-    Route::get('/users_list', [AdminController::class, 'show_users_list'])->name('admin.users_list');
-    Route::resource('users', AdminController::class);
-});
-
-<x-nav-link :href="route('admin.admin.users_list')" :active="request()->routeIs('home')">
-    {{ __('Liste') }}
-</x-nav-link>
