@@ -29,6 +29,7 @@ Route::middleware(['auth', 'verified', 'customer'])->group(function () {
 Route::prefix('admin')->middleware(['auth', 'admin'])->name('admin.')->group(function () {
     Route::get('/dashboard', [AdminController::class, 'index'])->name('dashboard');
     Route::get('/users_list', [AdminController::class, 'show_users_list'])->name('users_list');
+    Route::get('/services_list', [AdminController::class, 'show_services_list'])->name('services_list');
     Route::resource('services', ServiceController::class);
     Route::resource('users', UserController::class);
 });

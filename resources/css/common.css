@@ -17,6 +17,10 @@ button {
     cursor: pointer;
 }
 
+.active-link {
+    color: white;
+}
+
 /* Header */
 header {
     background-color: #8046b9; 
@@ -43,19 +47,61 @@ header nav ul {
     gap: 15px;
 }
 
-header nav ul li a {
+header nav ul li {
+    cursor: pointer;
+}
+
+header nav ul li a, header nav ul li {
     color: #C6C6C6;
     font-size: 18px;
     font-weight: 600;
     transition: color 0.3s;
 }
 
-header nav ul li a:hover {
+header nav ul li a:hover, header nav ul li:hover {
     color: white; 
 }
 
-.active-link {
+/* Dropdown Styling */
+.nav-item {
+    position: relative;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #8046b9;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 0;
+    list-style: none;
+    width: 200px;
+}
+
+.dropdown-menu li {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+.dropdown-menu li:last-child {
+    border-bottom: none;
+}
+
+.dropdown-menu li a {
     color: white;
+    display: block;
+    width: 100%;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+.dropdown-menu li:hover {
+    background-color: #9b5ed7;
+}
+
+.nav-item:hover .dropdown-menu {
+    display: block;
 }
 
 /* Main */

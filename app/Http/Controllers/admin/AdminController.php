@@ -4,6 +4,7 @@ namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\User;
+use App\Models\Service;
 use Illuminate\Support\Facades\Auth;
 
 class AdminController extends Controller
@@ -16,5 +17,10 @@ class AdminController extends Controller
     public function show_users_list() {
         $users = User::all();
         return view('pages.admin.users_list', compact('users'));
+    }
+
+    public function show_services_list() {
+        $services = Service::all();
+        return view('pages.admin.services_list', compact('services'));
     }
 }

@@ -30,10 +30,10 @@ class ServiceController extends Controller
             return redirect()->route('admin.dashboard')->with('success', 'Service créé avec succès.');
     }
 
-    // public function show(string $id){
-    //     $user = User::findOrFail($id);
-    //     return view('pages.admin.users.show', compact('user'));
-    // }
+    public function show(string $id){
+        $service = Service::findOrFail($id);
+        return view('pages.admin.services.show', compact('service'));
+    }
 
     // public function edit(string $id){
     //     $user = User::findOrFail($id);
