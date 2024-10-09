@@ -21,7 +21,7 @@
             </div>
     
             <div class="form-group">
-                <x-primary-button>
+                <x-primary-button class="btn">
                     {{ __('Récuperer le mot de passe') }}
                 </x-primary-button>
             </div>

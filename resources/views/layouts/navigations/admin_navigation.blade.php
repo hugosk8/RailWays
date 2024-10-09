@@ -15,7 +15,7 @@
             <ul class="dropdown-menu">
                 <li>
                     <x-nav-link :href="route('admin.users_list')" class="{{ request()->routeIs('admin.users_list') ? 'active-link' : '' }}">
-                        {{ __('Liste') }}
+                        {{ __('Tout les utilisateurs') }}
                     </x-nav-link>
                 </li>
                 <li>
@@ -30,7 +30,7 @@
             <ul class="dropdown-menu">
                 <li>
                     <x-nav-link :href="route('admin.services_list')" class="{{ request()->routeIs('admin.services_list') ? 'active-link' : '' }}">
-                        {{ __('Liste') }}
+                        {{ __('Tout les services') }}
                     </x-nav-link>
                 </li>
                 <li>
@@ -45,7 +45,7 @@
             <ul class="dropdown-menu">
                 <li>
                     <x-nav-link :href="route('admin.appointments_list')" class="{{ request()->routeIs('admin.appointments_list') ? 'active-link' : '' }}">
-                        {{ __('Liste') }}
+                        {{ __('Tout les rendez-vous') }}
                     </x-nav-link>
                 </li>
                 <li>

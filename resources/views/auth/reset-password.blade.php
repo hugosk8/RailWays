@@ -27,7 +27,7 @@
         </div>
 
         <div>
-            <x-primary-button>
+            <x-primary-button class="btn">
                 {{ __('Reset Password') }}
             </x-primary-button>
         </div>

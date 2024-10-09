@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\admin\AdminController;
 use App\Http\Controllers\admin\ServiceController;
 use App\Http\Controllers\admin\AppointmentController;
+use App\Http\Controllers\admin\PaymentController;
 use App\Http\Controllers\admin\UserController;
 use App\Http\Controllers\customer\CustomerController;
 use App\Http\Controllers\guest\GuestController;
@@ -33,6 +34,7 @@ Route::prefix('admin')->middleware(['auth', 'admin'])->name('admin.')->group(fun
     Route::get('/services_list', [AdminController::class, 'show_services_list'])->name('services_list');
     Route::get('/appointments_list', [AdminController::class, 'show_appointments_list'])->name('appointments_list');
     Route::resource('appointments', AppointmentController::class);
+    Route::resource('payments', PaymentController::class);
     Route::resource('services', ServiceController::class);
     Route::resource('users', UserController::class);
 });

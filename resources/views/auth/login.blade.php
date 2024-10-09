@@ -37,7 +37,7 @@
                 @endif
             </div>
     
-            <x-primary-button>
+            <x-primary-button class="btn">
                 {{ __('Se connecter') }}
             </x-primary-button>
         </form>

@@ -39,7 +39,7 @@
                 </a>
             </div>
                 
-                <x-primary-button>
+                <x-primary-button class="btn">
                     {{ __('Créer un compte') }}
                 </x-primary-button>
             </form>
