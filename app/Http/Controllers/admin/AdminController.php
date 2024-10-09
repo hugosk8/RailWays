@@ -4,6 +4,7 @@ namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Appointment;
+use App\Models\Payment;
 use App\Models\User;
 use App\Models\Service;
 use Illuminate\Support\Facades\Auth;
@@ -28,5 +29,10 @@ class AdminController extends Controller
     public function show_appointments_list() {
         $appointments = Appointment::with(['user', 'service'])->get();
         return view('pages.admin.appointments_list', compact('appointments'));
+    }
+
+    public function show_payments_list() {
+        $payments = Payment::with('appointment.user')->get();
+        return view('pages.admin.payments_list', compact('payments'));
     }
 }

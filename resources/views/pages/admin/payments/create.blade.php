@@ -1,6 +1,6 @@
 @extends('layouts.admin')
 
-@section('title', 'Ajouter un service')
+@section('title', 'Ajouter un paiment')
 
 @section('content')
     @if ($errors->any())
@@ -16,12 +16,12 @@
     <div class="form-container">
         <h1>Ajouter un paiement</h1>
     
-        <form action="{{ route('admin.services.store') }}" method="POST">
+        <form action="{{ route('admin.payments.store') }}" method="POST">
             @csrf
             
             <div class="form-group">
-                <label for="appointment">Rendez-vous :</label>
-                <select name="appointment" id="appointment">
+                <label for="appointment_id">Rendez-vous :</label>
+                <select name="appointment_id" id="appointment_id">
                     <option selected disabled value="">Choisissez un rendez-vous</option>
                     @foreach ($appointments as $appointment)
                         <option value="{{ $appointment->id }}">{{ $appointment->user->name . " le " . $appointment->appointment_date . " à " . $appointment->appointment_time  }}</option>
@@ -35,8 +35,8 @@
             </div>
             
             <div class="form-group">
-                <label for="status">Statut :</label>
-                <select name="status" id="status">
+                <label for="payment_status">Statut :</label>
+                <select name="payment_status" id="payment_status">
                     <option selected disabled value="">Choisissez un statut</option>
                     <option value="pending">Pending</option>
                     <option value="paid">Paid</option>
@@ -44,8 +44,8 @@
             </div>
             
             <div class="form-group">
-                <label for="date">Date :</label>
-                <input type="date" name="date" id="date">
+                <label for="payment_date">Date :</label>
+                <input type="date" name="payment_date" id="payment_date">
             </div>
     
             <button type="submit" class="btn btn-primary">Ajouter le service</button>

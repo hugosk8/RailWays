@@ -55,6 +55,21 @@
                 </li>
             </ul>
         </li>
+        <li class="{{ request()->routeIs('admin.payments_list', 'admin.payments.create') ? 'nav-item dropdown active-link' : 'nav-item dropdown' }}">
+            Paiements
+            <ul class="dropdown-menu">
+                <li>
+                    <x-nav-link :href="route('admin.payments_list')" class="{{ request()->routeIs('admin.payments_list') ? 'active-link' : '' }}">
+                        {{ __('Tout les paiements') }}
+                    </x-nav-link>
+                </li>
+                <li>
+                    <x-nav-link :href="route('admin.payments.create')" class="{{ request()->routeIs('admin.payments.create') ? 'active-link' : '' }}">
+                        {{ __('Ajouter') }}
+                    </x-nav-link>
+                </li>
+            </ul>
+        </li>
         <li>
             <form method="POST" action="{{ route('logout') }}">
                 @csrf
