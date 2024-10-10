@@ -33,7 +33,10 @@
             <tbody>
                 @foreach ($appointments as $appointment)
                 <tr>
-                    <td>{{ $appointment->id }}</td>
+                    <td>
+                        <a href="{{ route('admin.appointments.show', $appointment->id) }}">
+                            {{ $appointment->id }}</td>
+                        </a>
                     <td>
                         <a href="{{ route('admin.users.show', $appointment->user->id) }}">
                             {{ $appointment->user->name }}

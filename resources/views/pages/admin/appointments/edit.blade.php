@@ -13,33 +13,33 @@
         </div>
     @endif
 
-    <h1>Modifier l'utilisateur</h1>
+    <h1>Modifier le rendez-vous</h1>
 
-    <form action="{{ route('admin.services.update', $service->id) }}" method="POST">
+    <form action="{{ route('admin.appointments.update', $appointment->id) }}" method="POST">
         @csrf
         @method('PUT')
 
         <div class="form-group">
             <label for="name">Nom :</label>
-            <span>Actuel : {{ $service->name }}</span>
+            <span>Actuel : {{ $appointment->name }}</span>
             <input type="text" name="name" id="name" placeholder="Laisser vide si non modifié">
         </div>
 
         <div class="form-group">
             <label for="email">Prix :</label>
-            <span>Actuel : {{ $service->price }} €</span>
+            <span>Actuel : {{ $appointment->price }} €</span>
             <input type="number" name="price" id="price" placeholder="Laisser vide si non modifié">
         </div>
 
         <div class="form-group">
             <label for="password">Durée :</label>
-            <span>Actuel : {{ $service->duration }} minutes</span>
+            <span>Actuel : {{ $appointment->duration }} minutes</span>
             <input type="number" name="duration" id="duration" placeholder="Laisser vide si non modifié">
         </div>
 
         <div class="form-group">
             <label for="role">Description :</label>
-            <span>Actuel : {{ $service->description }}</span>
+            <span>Actuel : {{ $appointment->description }}</span>
             <textarea name="description" id="description" cols="30" rows="10" placeholder="Laisser vide si non modifié"></textarea>
 
         <button type="submit" class="btn">Mettre à jour</button>

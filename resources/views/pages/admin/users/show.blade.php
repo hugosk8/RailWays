@@ -13,10 +13,10 @@
         </div>
     @endif
 
-    <h1>Informations de l'utilisateur</h1>
     
-    <div class="user-card">
-        <h2><span>Nom : </span>{{ $user->name }}</h2>
+    <div class="card">
+        <h1>Informations de l'utilisateur</h1>
+        <p><strong>Nom : </strong>{{ $user->name }}</p>
         <p><strong>ID :</strong> {{ $user->id }}</p> 
         <p><strong>Email :</strong> {{ $user->email }}</p>
         <p><strong>Rôle :</strong> {{ ucfirst($user->role) }}</p>

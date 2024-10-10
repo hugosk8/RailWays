@@ -13,10 +13,10 @@
         </div>
     @endif
 
-    <h1>Informations du service</h1>
     
-    <div class="user-card">
-        <h2><span>Nom : </span>{{ $service->name }}</h2>
+    <div class="card">
+        <h1>Informations du service</h1>
+        <p><strong>Nom : </strong>{{ $service->name }}</p>
         <p><strong>ID :</strong> {{ $service->id }}</p> 
         <p><strong>Prix :</strong> {{ $service->price }} €</p>
         <p><strong>Durée :</strong> {{ $service->duration }} minutes</p>

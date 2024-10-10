@@ -15,7 +15,7 @@
 
     <div class="form-container">
         <h1>Ajouter un paiement</h1>
-    
+        
         <form action="{{ route('admin.payments.store') }}" method="POST">
             @csrf
             
@@ -47,7 +47,7 @@
                 <label for="payment_date">Date :</label>
                 <input type="date" name="payment_date" id="payment_date">
             </div>
-    
+            
             <button type="submit" class="btn btn-primary">Ajouter le service</button>
         </form>
     </div>

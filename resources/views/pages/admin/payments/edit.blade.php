@@ -13,35 +13,53 @@
         </div>
     @endif
 
-    <h1>Modifier l'utilisateur</h1>
+    <h1>Modifier un paiement</h1>
 
-    <form action="{{ route('admin.services.update', $service->id) }}" method="POST">
+    <form action="{{ route('admin.payments.update', $payment->id) }}" method="POST">
         @csrf
         @method('PUT')
 
         <div class="form-group">
-            <label for="name">Nom :</label>
-            <span>Actuel : {{ $service->name }}</span>
-            <input type="text" name="name" id="name" placeholder="Laisser vide si non modifié">
+            <label for="appointment_id">Rendez-vous :</label>
+            <span>Actuel : {{ $payment->appointment->user->name . " le " . $payment->appointment->appointment_date . " à " . $payment->appointment->appointment_time  }}</span>
+            <select name="appointment_id" id="appointment_id">
+                <option selected disabled value="">Laisser vide si non modifié</option>
+                @foreach ($appointments as $appointment)
+                    <option value="{{ $appointment->id }}">{{ $appointment->user->name . " le " . $appointment->appointment_date . " à " . $appointment->appointment_time  }}</option>
+                @endforeach
+            </select>
         </div>
-
+        
         <div class="form-group">
-            <label for="email">Prix :</label>
-            <span>Actuel : {{ $service->price }} €</span>
-            <input type="number" name="price" id="price" placeholder="Laisser vide si non modifié">
+            <label for="amount">Montant :</label>
+            <span>Actuel : {{ $payment->amount }}€</span>
+            <input type="number" name="amount" id="amount" placeholder="Laisser vide si non modifié" value="{{ old('amount') }}">
         </div>
-
+        
         <div class="form-group">
-            <label for="password">Durée :</label>
-            <span>Actuel : {{ $service->duration }} minutes</span>
-            <input type="number" name="duration" id="duration" placeholder="Laisser vide si non modifié">
+            <label for="payment_status">Statut :</label>
+            <span>Actuel : {{ $payment->payment_status }}</span>
+            <select name="payment_status" id="payment_status">
+                <option selected disabled value="">Laisser vide si non modifié</option>
+                <option value="pending">Pending</option>
+                <option value="paid">Paid</option>
+            </select>
         </div>
-
+        
         <div class="form-group">
-            <label for="role">Description :</label>
-            <span>Actuel : {{ $service->description }}</span>
-            <textarea name="description" id="description" cols="30" rows="10" placeholder="Laisser vide si non modifié"></textarea>
+            <label for="payment_date">Date :</label>
+            <span>Actuel : {{ $payment->payment_date }}</span>
+            <input type="text" name="payment_date" id="payment_date" placeholder="Laisser vide si non modifié">
+        </div>
 
         <button type="submit" class="btn">Mettre à jour</button>
     </form>
+
+    <script>
+        const dateInput = document.getElementById('payment_date');
+        dateInput.addEventListener("click", () => {
+            dateInput.setAttribute('type', 'date');
+        })
+    </script>
 @endsection
+

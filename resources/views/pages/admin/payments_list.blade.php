@@ -33,7 +33,11 @@
             <tbody>
                 @foreach ($payments as $payment)
                 <tr>
-                    <td>{{ $payment->id }}</td>
+                    <td>
+                        <a href="{{ route('admin.payments.show', $payment->id) }}">
+                            {{ $payment->id }}
+                        </a>
+                    </td>
                     <td>
                         <a href="{{ route('admin.users.show', $payment->appointment->user->id) }}">
                             {{ $payment->appointment->user->name }}
@@ -49,7 +53,7 @@
                     <td>{{ $payment->payment_date }}</td>
                     <td class="action-buttons">
                         <button type="button" class="btn-delete" onclick="confirmDelete({{$payment->id}})">Supprimer</button>
-                        <a href="{{ route('admin.users.edit', $payment->id) }}" class="btn-modify">Modifier</a>
+                        <a href="{{ route('admin.payments.edit', $payment->id) }}" class="btn-modify">Modifier</a>
                     </td>
                 </tr>
                 @endforeach
@@ -72,9 +76,9 @@
 @endsection
 
 <script>
-    function confirmDelete(userId) {
+    function confirmDelete(paymentId) {
         const deleteForm = document.getElementById('deleteForm');
-        deleteForm.action = `users/${userId}`;
+        deleteForm.action = `payments/${paymentId}`;
 
         document.getElementById('deleteModal').style.display = 'block';
     }
