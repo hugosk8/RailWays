@@ -15,6 +15,8 @@
 
     <h1>Liste des rendez-vous</h1>
 
+    <a class="btn" href="{{ route('admin.appointments.create') }}">Ajouter</a>
+
     @if ($appointments->isEmpty())
         <p>Aucun rendez-vous n'a été trouvé.</p>
     @else

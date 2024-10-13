@@ -21,6 +21,18 @@ button {
     color: white;
 }
 
+.btn {
+    color: white;
+    background-color: #3d24e4;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 6px;
+}
+
+.btn:hover {
+    background-color: #6553de;
+}
+
 /* Header */
 header {
     background-color: #8046b9; 

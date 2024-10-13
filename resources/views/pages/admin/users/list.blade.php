@@ -15,6 +15,8 @@
 
     <h1>Liste des utilisateurs</h1>
 
+    <a class="btn" href="{{ route('admin.users.create') }}">Ajouter</a>
+
     @if ($users->isEmpty())
         <p>Aucun utilisateur n'a été trouvé.</p>
     @else

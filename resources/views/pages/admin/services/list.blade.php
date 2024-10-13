@@ -15,6 +15,8 @@
 
     <h1>Liste des services</h1>
 
+    <a class="btn" href="{{ route('admin.services.create') }}">Ajouter</a>
+
     @if ($services->isEmpty())
         <p>Aucun service n'a été trouvé.</p>
     @else

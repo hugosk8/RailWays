@@ -15,6 +15,8 @@
 
     <h1>Liste des paiements</h1>
 
+    <a class="btn" href="{{ route('admin.payments.create') }}">Ajouter</a>
+
     @if ($payments->isEmpty())
         <p>Aucun paiment n'a été trouvé.</p>
     @else
