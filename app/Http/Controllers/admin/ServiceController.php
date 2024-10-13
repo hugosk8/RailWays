@@ -26,7 +26,7 @@ class ServiceController extends Controller
                 'price' => $validated['price'],
                 'duration' => $validated['duration']
             ]);
-            return redirect()->route('admin.services_list')->with('success', 'Service créé avec succès.');
+            return redirect()->route('admin.services.list')->with('success', 'Service créé avec succès.');
     }
 
     public function show(string $id){
@@ -56,13 +56,18 @@ class ServiceController extends Controller
             'duration' => $validated['duration'] ?? $service->duration
         ]);
 
-        return redirect()->route('admin.services_list')->with('success', "Service $service->name modifié avec succès.");
+        return redirect()->route('admin.services.list')->with('success', "Service $service->name modifié avec succès.");
     }
 
     public function destroy(string $id){
         $service = Service::findOrFail($id);
         $service->delete();
 
-        return redirect()->route('admin.services_list')->with('success', "Service $service->name supprimé avec succès.");
+        return redirect()->route('admin.services.list')->with('success', "Service $service->name supprimé avec succès.");
+    }
+
+    public function list() {
+        $services = Service::all();
+        return view('pages.admin.services.list', compact('services'));
     }
 }

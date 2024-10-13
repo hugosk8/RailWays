@@ -33,7 +33,7 @@ class AppointmentController extends Controller
             'status' => $validated['status']
         ]);
 
-        return redirect()->route('admin.appointments_list')->with('success', 'Rendez-vous créé avec succès.');
+        return redirect()->route('admin.appointments.list')->with('success', 'Rendez-vous créé avec succès.');
     }
 
     public function show(string $id){
@@ -65,13 +65,18 @@ class AppointmentController extends Controller
             'status' => $validated['status'] ?? $appointment->status
         ]);
 
-        return redirect()->route('admin.appointments_list')->with('success', "Rendez-vous modifié avec succès.");
+        return redirect()->route('admin.appointments.list')->with('success', "Rendez-vous modifié avec succès.");
     }
 
     public function destroy(string $id){
         $appointment = Appointment::findOrFail($id);
         $appointment->delete();
 
-        return redirect()->route('admin.appointments_list')->with('success', "Rendez-vous supprimé avec succès.");
+        return redirect()->route('admin.appointments.list')->with('success', "Rendez-vous supprimé avec succès.");
+    }
+
+    public function list() {
+        $appointments = Appointment::with(['user', 'service'])->get();
+        return view('pages.admin.appointments.list', compact('appointments'));
     }
 }

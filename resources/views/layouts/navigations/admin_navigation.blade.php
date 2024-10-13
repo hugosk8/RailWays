@@ -10,8 +10,8 @@
                 {{ __('Tableau de bord') }}
             </x-nav-link>
         </li>
-        <li class="{{ request()->routeIs('admin.users_list', 'admin.users.create') ? 'nav-item dropdown active-link' : 'nav-item dropdown' }}">
-            <x-nav-link :href="route('admin.users_list')" class="{{ request()->routeIs('admin.users_list') ? 'active-link' : '' }}">
+        <li class="{{ request()->routeIs('admin.users.list', 'admin.users.create') ? 'nav-item dropdown active-link' : 'nav-item dropdown' }}">
+            <x-nav-link :href="route('admin.users.list')" class="{{ request()->routeIs('admin.users.list') ? 'active-link' : '' }}">
                 {{ __('Utilisateurs') }}
             </x-nav-link>
             <ul class="dropdown-menu">
@@ -22,8 +22,8 @@
                 </li>
             </ul>
         </li>
-        <li class="{{ request()->routeIs('admin.services_list', 'admin.services.create') ? 'nav-item dropdown active-link' : 'nav-item dropdown' }}">
-            <x-nav-link :href="route('admin.services_list')" class="{{ request()->routeIs('admin.services_list') ? 'active-link' : '' }}">
+        <li class="{{ request()->routeIs('admin.services.list', 'admin.services.create') ? 'nav-item dropdown active-link' : 'nav-item dropdown' }}">
+            <x-nav-link :href="route('admin.services.list')" class="{{ request()->routeIs('admin.services.list') ? 'active-link' : '' }}">
                 {{ __('Services') }}
             </x-nav-link>
             <ul class="dropdown-menu">
@@ -34,8 +34,8 @@
                 </li>
             </ul>
         </li>
-        <li class="{{ request()->routeIs('admin.appointments_list', 'admin.appointments.create') ? 'nav-item dropdown active-link' : 'nav-item dropdown' }}">
-            <x-nav-link :href="route('admin.appointments_list')" class="{{ request()->routeIs('admin.appointments_list') ? 'active-link' : '' }}">
+        <li class="{{ request()->routeIs('admin.appointments.list', 'admin.appointments.create') ? 'nav-item dropdown active-link' : 'nav-item dropdown' }}">
+            <x-nav-link :href="route('admin.appointments.list')" class="{{ request()->routeIs('admin.appointments.list') ? 'active-link' : '' }}">
                 {{ __('Rendez-vous') }}
             </x-nav-link>
             <ul class="dropdown-menu">
@@ -46,8 +46,8 @@
                 </li>
             </ul>
         </li>
-        <li class="{{ request()->routeIs('admin.payments_list', 'admin.payments.create') ? 'nav-item dropdown active-link' : 'nav-item dropdown' }}">
-            <x-nav-link :href="route('admin.payments_list')" class="{{ request()->routeIs('admin.payments_list') ? 'active-link' : '' }}">
+        <li class="{{ request()->routeIs('admin.payments.list', 'admin.payments.create') ? 'nav-item dropdown active-link' : 'nav-item dropdown' }}">
+            <x-nav-link :href="route('admin.payments.list')" class="{{ request()->routeIs('admin.payments.list') ? 'active-link' : '' }}">
                 {{ __('Paiements') }}
             </x-nav-link>
             <ul class="dropdown-menu">

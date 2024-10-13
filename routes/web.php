@@ -29,10 +29,10 @@ Route::middleware(['auth', 'verified', 'customer'])->group(function () {
 // For administrator
 Route::prefix('admin')->middleware(['auth', 'admin'])->name('admin.')->group(function () {
     Route::get('/dashboard', [AdminController::class, 'index'])->name('dashboard');
-    Route::get('/users_list', [AdminController::class, 'show_users_list'])->name('users_list');
-    Route::get('/payments_list', [AdminController::class, 'show_payments_list'])->name('payments_list');
-    Route::get('/services_list', [AdminController::class, 'show_services_list'])->name('services_list');
-    Route::get('/appointments_list', [AdminController::class, 'show_appointments_list'])->name('appointments_list');
+    Route::get('/users/list', [UserController::class, 'list'])->name('users.list');
+    Route::get('/payments/list', [PaymentController::class, 'list'])->name('payments.list');
+    Route::get('/services/list', [ServiceController::class, 'list'])->name('services.list');
+    Route::get('/appointments/list', [AppointmentController::class, 'list'])->name('appointments.list');
     Route::resource('appointments', AppointmentController::class);
     Route::resource('payments', PaymentController::class);
     Route::resource('services', ServiceController::class);

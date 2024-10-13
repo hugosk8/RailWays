@@ -28,7 +28,7 @@ class PaymentController extends Controller
                 'payment_status' => $validated['payment_status'],
                 'payment_date' => $validated['payment_date']
             ]);
-            return redirect()->route('admin.payments_list')->with('success', 'Paiement créé avec succès.');
+            return redirect()->route('admin.payments.list')->with('success', 'Paiement créé avec succès.');
     }
 
     public function show(string $id){
@@ -59,13 +59,18 @@ class PaymentController extends Controller
             'payment_date' => $validated['payment_date'] ?? $payment->payment_date
         ]);
 
-        return redirect()->route('admin.payments_list')->with('success', "Paiement modifié avec succès.");
+        return redirect()->route('admin.payments.list')->with('success', "Paiement modifié avec succès.");
     }
 
     public function destroy(string $id){
         $payment = Payment::findOrFail($id);
         $payment->delete();
 
-        return redirect()->route('admin.payments_list')->with('success', "Paiement supprimé avec succès.");
+        return redirect()->route('admin.payments.list')->with('success', "Paiement supprimé avec succès.");
+    }
+
+    public function list() {
+        $payments = Payment::with('appointment.user')->get();
+        return view('pages.admin.payments.list', compact('payments'));
     }
 }
