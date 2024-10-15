@@ -3,6 +3,7 @@
 @section('title', 'Mot de passe oublié')
 
 @section('content')
+<div class="container">
     <h1>Récuperation du mot de passe :</h1>
     <p>Mot de passe oublié? Pas de probleme. Renseignez votre adresse email et vous allez recevoir un lien de récuperation pour en chosir un nouveau.</p>
 
@@ -27,4 +28,5 @@
             </div>
         </form>
     </div>
+</div>
 @endsection

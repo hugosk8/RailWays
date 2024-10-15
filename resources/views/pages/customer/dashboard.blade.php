@@ -3,6 +3,7 @@
 @section('title', 'Dashboard')
 
 @section('content')
+<div class="container">
     <h1>Dashboard</h1>
     <p>Vous êtes connecté !</p>
     <ul>
@@ -10,4 +11,5 @@
         <li>Role : {{ $user->role}}</li>
         <li>Email : {{ $user->email }}</li>
     </ul>
+</div>
 @endsection

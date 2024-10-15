@@ -14,6 +14,8 @@ use Illuminate\Support\Facades\Route;
 Route::group([], function () {
     Route::get('/', [GuestController::class, 'index'])->name('home');
     Route::get('/contact', [GuestController::class, 'contact'])->name('contact');
+    Route::get('/prestations', [GuestController::class, 'prestations'])->name('prestations');
+    Route::get('/reservation', [GuestController::class, 'reservation'])->name('reservation');
 });
 
 // For connected users

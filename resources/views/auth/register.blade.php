@@ -3,6 +3,7 @@
 @section('title', 'Login')
 
 @section('content')
+<div class="container">
     <div class="form-container">
         <h1>Inscription :</h1>
 
@@ -39,9 +40,10 @@
                 </a>
             </div>
                 
-                <x-primary-button class="btn">
-                    {{ __('Créer un compte') }}
-                </x-primary-button>
-            </form>
-        </div>
+            <x-primary-button class="btn">
+                {{ __('Créer un compte') }}
+            </x-primary-button>
+        </form>
+    </div>
+</div>
 @endsection

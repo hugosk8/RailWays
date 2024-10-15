@@ -3,6 +3,7 @@
 @section('title', 'Login')
 
 @section('content')
+<div class="container">
     <x-auth-session-status :status="session('status')" />
 
     <div class="form-container">
@@ -42,4 +43,5 @@
             </x-primary-button>
         </form>
     </div>
+</div>
 @endsection

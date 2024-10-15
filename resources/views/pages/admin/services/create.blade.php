@@ -3,6 +3,7 @@
 @section('title', 'Ajouter un service')
 
 @section('content')
+<div class="container">
     @if ($errors->any())
         <div class="error-message">
             <ul>
@@ -42,4 +43,5 @@
             <button type="submit" class="btn btn-primary">Ajouter le service</button>
         </form>
     </div>
+</div>
 @endsection

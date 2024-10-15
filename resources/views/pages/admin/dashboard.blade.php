@@ -3,6 +3,7 @@
 @section('title', 'Dashboard')
 
 @section('content')
+<div class="container">
     @if (session('error'))
         <div class="error-message">
             {{ session('error') }}
@@ -20,4 +21,5 @@
         <li>Role : {{ $user->role}}</li>
         <li>Email : {{ $user->email }}</li>
     </ul>
+</div>
 @endsection

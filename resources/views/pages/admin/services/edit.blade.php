@@ -3,6 +3,7 @@
 @section('title', 'Modifier l\'utilisateur')
 
 @section('content')
+<div class="container">
     @if ($errors->any())
         <div class="error-message">
             <ul>
@@ -44,4 +45,5 @@
 
         <button type="submit" class="btn">Mettre à jour</button>
     </form>
+</div>
 @endsection

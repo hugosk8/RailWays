@@ -3,6 +3,7 @@
 @section('title', 'Informations du redez-vous')
 
 @section('content')
+<div class="container">
     @if ($errors->any())
         <div class="error-message">
             <ul>
@@ -24,4 +25,5 @@
         <p><strong>Date de création :</strong> {{ $appointment->created_at->format('d/m/Y') }}</p>
         <p><strong>derniere modification :</strong> {{ $appointment->updated_at->format('d/m/Y') }}</p>
     </div>
+</div>
 @endsection

@@ -3,6 +3,7 @@
 @section('title', 'Modifier l\'utilisateur')
 
 @section('content')
+<div class="container">
     @if ($errors->any())
         <div class="error-message">
             <ul>
@@ -54,12 +55,13 @@
 
         <button type="submit" class="btn">Mettre à jour</button>
     </form>
-
-    <script>
-        const dateInput = document.getElementById('payment_date');
-        dateInput.addEventListener("click", () => {
-            dateInput.setAttribute('type', 'date');
-        })
-    </script>
+</div>
 @endsection
+
+<script>
+    const dateInput = document.getElementById('payment_date');
+    dateInput.addEventListener("click", () => {
+        dateInput.setAttribute('type', 'date');
+    })
+</script>
 

@@ -3,6 +3,7 @@
 @section('title', 'Liste des utilisateurs')
 
 @section('content')
+<div class="container">
     @if (session('error'))
         <div class="error-message">
             {{ session('error') }}
@@ -75,6 +76,7 @@
             </div>
         </div>
     @endif
+</div>
 @endsection
 
 <script>

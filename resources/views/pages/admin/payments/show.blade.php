@@ -3,6 +3,7 @@
 @section('title', 'Informations du paiement')
 
 @section('content')
+<div class="container">
     @if ($errors->any())
         <div class="error-message">
             <ul>
@@ -23,4 +24,5 @@
         <p><strong>Date de création :</strong> {{ $payment->created_at->format('d/m/Y') }}</p>
         <p><strong>derniere modification :</strong> {{ $payment->updated_at->format('d/m/Y') }}</p>
     </div>
+</div>
 @endsection

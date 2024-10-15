@@ -3,6 +3,7 @@
 @section('title', 'Contact')
 
 @section('content')
+<div class="container">
     <h1>Contact</h1>
 
     <div class="form-container">
@@ -30,4 +31,5 @@
             <button class="btn" type="submit">Envoyer</button>
         </form>
     </div>
+</div>
 @endsection
