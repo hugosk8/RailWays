@@ -15,8 +15,8 @@ return new class extends Migration
             $table->id();
             $table->foreignId('appointment_id')->constrained()->onDelete('cascade');
             $table->decimal('amount', 10, 2);
-            $table->enum('payment_status', ['pending', 'paid'])->default('pending');
-            $table->date('payment_date');
+            $table->enum('status', ['pending', 'paid'])->default('pending');
+            $table->date('date');
             $table->timestamps();
         });
     }
