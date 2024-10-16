@@ -4,22 +4,31 @@
 
 @section('content')
 <div class="container">
-    <h1>Reservation</h1>
+    <h1>Réserver une prestation</h1>
+    
+    <form {{--  action="{{ route('reservation.store') }}" --}} method="POST">
+        @csrf
 
-    <div class="reservation-container">
+        <!-- Sélection de la prestation -->
         <div class="service">
-            <h1>1. Choix de la prestation</h1>
-            <select name="service" id="service" required>
-                <option selected disabled value="">Choix de la prestation</option>
+            <label for="service">Choisir une prestation</label>
+            <select id="service" name="service_id" required>
+                <option selected disabled value="">Choisissez votre prestation</option>
                 @foreach ($services as $service)
-                    <option value="{{ $service->id }}">{{ $service->name }}</option>
+                    <option value="{{ $service->id }}">{{ $service->name }} ({{ $service->duration }} min)</option>
                 @endforeach
             </select>
         </div>
 
-        <div class="date">
-
+        <!-- Sélection de la date et l'heure -->
+        <div>
+            <label for="appointment_date_time">Choisir une date et une heure :</label>
+            <input type="text" style="display: none" id="appointment_date_time" name="appointment_date_time">
         </div>
-    </div>
+
+        <button type="submit">Réserver</button>
+    </form>
 </div>
 @endsection
+
+@vite(['resources/js/flat-picker.js'])

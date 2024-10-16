@@ -1,5 +1,3 @@
-console.log("test");
-
 $(document).ready(function(){
     $('.slick-carousel').slick({
         arrows: false,

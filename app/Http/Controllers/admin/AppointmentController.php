@@ -21,18 +21,25 @@ class AppointmentController extends Controller
             'user_id' => 'required|exists:users,id',
             'service_id' => 'required|exists:services,id',
             'appointment_date' => 'required|date',
-            'appointment_time' => 'required|date_format:H:i',
+            'appointment_time' => 'required|date_format:H:i',  
             'status' => 'required|in:scheduled,canceled,completed'
         ]);
+    
+        // Compute appointment_end with appointment_time and duration
+        $service = Service::findOrFail($validated['service_id']);
+        $duration = $service->duration;
+        $appointmentStartTimestamp = strtotime($validated['appointment_time']);
+        $appointmentEndTimestamp = $appointmentStartTimestamp + ($duration * 60);
+        $appointmentEnd = date('H:i', $appointmentEndTimestamp);
 
         Appointment::create([
             'user_id' => $validated['user_id'],
             'service_id' => $validated['service_id'],
             'appointment_date' => $validated['appointment_date'],
             'appointment_time' => $validated['appointment_time'],
+            'appointment_end' =>  $appointmentEnd,
             'status' => $validated['status']
         ]);
-
         return redirect()->route('admin.appointments.list')->with('success', 'Rendez-vous créé avec succès.');
     }
 
@@ -78,5 +85,18 @@ class AppointmentController extends Controller
     public function list() {
         $appointments = Appointment::with(['user', 'service'])->get();
         return view('pages.admin.appointments.list', compact('appointments'));
+    }
+
+    public function getReservedSlots() {
+        $reservedSlots = Appointment::where('status', 'scheduled')->get(['appointment_date', 'appointment_time', 'appointment_end']);
+
+        $reservedSlots = $reservedSlots->map(function($slot) {
+            return [
+                'appointment_date' => \Carbon\Carbon::parse($slot->appointment_date)->format('Y-m-d'),
+                'appointment_time' => \Carbon\Carbon::parse($slot->appointment_time)->format('H:i:s'),
+                'appointment_end' => \Carbon\Carbon::parse($slot->appointment_end)->format('H:i:s'),
+            ];
+        });
+        return response()->json($reservedSlots);
     }
 }

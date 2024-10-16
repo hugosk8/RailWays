@@ -5,6 +5,7 @@ use App\Http\Controllers\admin\AdminController;
 use App\Http\Controllers\admin\ServiceController;
 use App\Http\Controllers\admin\AppointmentController;
 use App\Http\Controllers\admin\PaymentController;
+use App\Http\Controllers\Admin\SlotController;
 use App\Http\Controllers\admin\UserController;
 use App\Http\Controllers\customer\CustomerController;
 use App\Http\Controllers\guest\GuestController;
@@ -35,10 +36,12 @@ Route::prefix('admin')->middleware(['auth', 'admin'])->name('admin.')->group(fun
     Route::get('/payments/list', [PaymentController::class, 'list'])->name('payments.list');
     Route::get('/services/list', [ServiceController::class, 'list'])->name('services.list');
     Route::get('/appointments/list', [AppointmentController::class, 'list'])->name('appointments.list');
+    Route::get('/reserved-slots', [AppointmentController::class, 'getReservedSlots']);
     Route::resource('appointments', AppointmentController::class);
     Route::resource('payments', PaymentController::class);
     Route::resource('services', ServiceController::class);
     Route::resource('users', UserController::class);
+    Route::resource('slots', SlotController::class);
 });
 
 require __DIR__.'/auth.php';

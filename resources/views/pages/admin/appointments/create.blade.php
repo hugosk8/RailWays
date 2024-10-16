@@ -45,7 +45,7 @@
 
             <div class="form-group">
                 <label for="appointment_time">Heure :</label>
-                <input type="time" name="appointment_time" id="appointment_time">
+                <input type="time" name="appointment_time" id="appointment_time" value="17:00">
             </div>
             
             <div class="form-group">
