@@ -29,6 +29,11 @@ document.addEventListener('DOMContentLoaded', async function() {
         dateFormat: "Y-m-d H:i",
         // Empêche la sélection des dates passées
         minDate: "today",
+        enable: [
+            function(date) {
+                return (date.getDay() !== 0 && date.getDay() !== 1);
+            }
+        ],
         onChange: function(selectedDates, dateStr, instance) {
             const selectedDate = selectedDates[0];
 
