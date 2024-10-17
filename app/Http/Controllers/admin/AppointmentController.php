@@ -67,7 +67,11 @@ class AppointmentController extends Controller
         $appointment = Appointment::findOrFail($id);
         $appointment->delete();
 
-        return redirect()->route('admin.appointments.list')->with('success', "Rendez-vous supprimé avec succès.");
+        if (auth()->user()->role === 'admin') {
+            return redirect()->route('admin.appointments.list')->with('success', "Rendez-vous supprimé avec succès.");
+        } else {
+            return redirect()->route('dashboard')->with('success', "Rendez-vous supprimé avec succès.");
+        }
     }
 
     public function list() {

@@ -63,7 +63,7 @@
         {{-- Modale de confirmation --}}
         <div id="deleteModal">
             <div class="modal-content">
-                <p>Voulez vous supprimer ce service?</p>
+                <p>Voulez vous supprimer ce rendez-vous?</p>
                 <form id="deleteForm" method="POST">
                     @csrf
                     @method('DELETE')
@@ -79,7 +79,7 @@
 <script>
     function confirmDelete($appointmentId) {
         const deleteForm = document.getElementById('deleteForm');
-        deleteForm.action = `appointments/${$appointmentId}`;
+        deleteForm.action = `${$appointmentId}`;
 
         document.getElementById('deleteModal').style.display = 'block';
     }

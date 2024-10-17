@@ -11,6 +11,7 @@ class CustomerController extends Controller
 {
     public function index() {
         $user = Auth::user();
-        return view('pages/customer/dashboard', compact('user'));
+        $appointments = $user->appointments;
+        return view('pages/customer/dashboard', compact('user', 'appointments'));
     }
 }

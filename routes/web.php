@@ -25,6 +25,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/reservation', [GuestController::class, 'reservation'])->name('reservation');
     Route::get('/reserved-slots', [AppointmentController::class, 'getReservedSlots']);
     Route::post('/store-appointment', [AppointmentController::class, 'store_from_customer'])->name('store-appointment');
+    Route::delete('/appointments/{id}', [AppointmentController::class, 'destroy'])->name('appointments.destroy');
     Route::prefix('profile')->group(function () {
         Route::get('/', [ProfileController::class, 'edit'])->name('profile.edit');
         Route::patch('/', [ProfileController::class, 'update'])->name('profile.update');
