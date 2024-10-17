@@ -15,7 +15,7 @@
             <select id="service" name="service_id" required>
                 <option selected disabled value="">Choisissez votre prestation</option>
                 @foreach ($services as $service)
-                    <option value="{{ $service->id }}">{{ $service->name }} ({{ $service->duration }} min)</option>
+                    <option value="{{ $service->id }}">{{ $service->name }} ({{ $service->duration }} heures)</option>
                 @endforeach
             </select>
         </div>

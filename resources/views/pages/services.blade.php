@@ -11,7 +11,7 @@
         <div class="card">
             <div class="content">
                 <h2>{{ $service->name }}</h2>
-                <span>{{ $service->duration }} minutes</span>
+                <span>{{ $service->duration }} heures</span>
                 <p>{{ $service->description }}</p>
                 <span>{{ $service->price }} €</span>
             </div>

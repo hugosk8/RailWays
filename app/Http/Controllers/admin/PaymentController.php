@@ -18,15 +18,15 @@ class PaymentController extends Controller
             $validated = $request->validate([
                 'appointment_id' => 'required|exists:appointments,id',
                 'amount' => 'required|numeric|min:0',
-                'payment_status' => 'required|in:paid,pending',
-                'payment_date' => 'required|date',
+                'status' => 'required|in:paid,pending',
+                'date' => 'required|date',
             ]);
 
             Payment::create([
                 'appointment_id' => $validated['appointment_id'],
                 'amount' => $validated['amount'],
-                'payment_status' => $validated['payment_status'],
-                'payment_date' => $validated['payment_date']
+                'status' => $validated['status'],
+                'date' => $validated['date']
             ]);
             return redirect()->route('admin.payments.list')->with('success', 'Paiement créé avec succès.');
     }
@@ -48,15 +48,15 @@ class PaymentController extends Controller
         $validated = $request->validate([
             'appointment_id' => 'sometimes|nullable|integer|exists:appointments,id',
             'amount' => 'sometimes|nullable|numeric|min:0',
-            'payment_status' => 'sometimes|nullable|string|in:pending,paid',
-            'payment_date' => 'sometimes|nullable|date'
+            'status' => 'sometimes|nullable|string|in:pending,paid',
+            'date' => 'sometimes|nullable|date'
         ]);
     
         $payment->update([
             'appointment_id' => $validated['appointment_id'] ?? $payment->appointment_id,
             'amount' => $validated['amount'] ?? $payment->amount,
-            'payment_status' => $validated['payment_status'] ?? $payment->payment_status,
-            'payment_date' => $validated['payment_date'] ?? $payment->payment_date
+            'status' => $validated['status'] ?? $payment->status,
+            'date' => $validated['date'] ?? $payment->date
         ]);
 
         return redirect()->route('admin.payments.list')->with('success', "Paiement modifié avec succès.");

@@ -43,7 +43,7 @@
                         </a>
                     </td>
                     <td>{{ $service->price }} €</td>
-                    <td>{{ $service->duration }} min</td>
+                    <td>{{ $service->duration }}h</td>
                     <td>{{ $service->description }}</td>
                     <td class="action-buttons">
                         <button type="button" class="btn-delete" onclick="confirmDelete({{$service->id}})">Supprimer</button>

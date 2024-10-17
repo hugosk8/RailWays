@@ -25,7 +25,7 @@
                 <select name="appointment_id" id="appointment_id">
                     <option selected disabled value="">Choisissez un rendez-vous</option>
                     @foreach ($appointments as $appointment)
-                        <option value="{{ $appointment->id }}">{{ $appointment->user->name . " le " . $appointment->appointment_date . " à " . $appointment->appointment_time  }}</option>
+                        <option value="{{ $appointment->id }}">{{ $appointment->user->name . " le " . $appointment->date  }}</option>
                     @endforeach
                 </select>
             </div>
@@ -36,8 +36,8 @@
             </div>
             
             <div class="form-group">
-                <label for="payment_status">Statut :</label>
-                <select name="payment_status" id="payment_status">
+                <label for="status">Statut :</label>
+                <select name="status" id="status">
                     <option selected disabled value="">Choisissez un statut</option>
                     <option value="pending">Pending</option>
                     <option value="paid">Paid</option>
@@ -45,8 +45,8 @@
             </div>
             
             <div class="form-group">
-                <label for="payment_date">Date :</label>
-                <input type="date" name="payment_date" id="payment_date">
+                <label for="date">Date :</label>
+                <input type="date" name="date" id="date">
             </div>
             
             <button type="submit" class="btn btn-primary">Ajouter le service</button>

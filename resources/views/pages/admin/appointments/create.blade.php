@@ -39,13 +39,8 @@
             </div>
 
             <div class="form-group">
-                <label for="appointment_date">Date :</label>
-                <input type="date" name="appointment_date" id="appointment_date">
-            </div>
-
-            <div class="form-group">
-                <label for="appointment_time">Heure :</label>
-                <input type="time" name="appointment_time" id="appointment_time" value="17:00">
+                <label for="date">Date :</label>
+                <input type="date" name="date" id="date">
             </div>
             
             <div class="form-group">

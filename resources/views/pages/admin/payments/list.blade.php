@@ -52,8 +52,8 @@
                         </a>
                     </td>
                     <td>{{ $payment->amount }}</td>
-                    <td>{{ $payment->payment_status }}</td>
-                    <td>{{ $payment->payment_date }}</td>
+                    <td>{{ $payment->status }}</td>
+                    <td>{{ $payment->date }}</td>
                     <td class="action-buttons">
                         <button type="button" class="btn-delete" onclick="confirmDelete({{$payment->id}})">Supprimer</button>
                         <a href="{{ route('admin.payments.edit', $payment->id) }}" class="btn-modify">Modifier</a>

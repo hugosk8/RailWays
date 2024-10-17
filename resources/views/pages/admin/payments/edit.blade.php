@@ -22,11 +22,11 @@
 
         <div class="form-group">
             <label for="appointment_id">Rendez-vous :</label>
-            <span>Actuel : {{ $payment->appointment->user->name . " le " . $payment->appointment->appointment_date . " à " . $payment->appointment->appointment_time  }}</span>
+            <span>Actuel : {{ $payment->appointment->user->name . " le " . $payment->appointment->date }}</span>
             <select name="appointment_id" id="appointment_id">
                 <option selected disabled value="">Laisser vide si non modifié</option>
                 @foreach ($appointments as $appointment)
-                    <option value="{{ $appointment->id }}">{{ $appointment->user->name . " le " . $appointment->appointment_date . " à " . $appointment->appointment_time  }}</option>
+                    <option value="{{ $appointment->id }}">{{ $appointment->user->name . " le " . $appointment->date }}</option>
                 @endforeach
             </select>
         </div>
@@ -38,9 +38,9 @@
         </div>
         
         <div class="form-group">
-            <label for="payment_status">Statut :</label>
-            <span>Actuel : {{ $payment->payment_status }}</span>
-            <select name="payment_status" id="payment_status">
+            <label for="status">Statut :</label>
+            <span>Actuel : {{ $payment->status }}</span>
+            <select name="status" id="status">
                 <option selected disabled value="">Laisser vide si non modifié</option>
                 <option value="pending">Pending</option>
                 <option value="paid">Paid</option>
@@ -48,9 +48,9 @@
         </div>
         
         <div class="form-group">
-            <label for="payment_date">Date :</label>
-            <span>Actuel : {{ $payment->payment_date }}</span>
-            <input type="text" name="payment_date" id="payment_date" placeholder="Laisser vide si non modifié">
+            <label for="date">Date :</label>
+            <span>Actuel : {{ $payment->date }}</span>
+            <input type="text" name="date" id="date" placeholder="Laisser vide si non modifié">
         </div>
 
         <button type="submit" class="btn">Mettre à jour</button>
@@ -59,7 +59,7 @@
 @endsection
 
 <script>
-    const dateInput = document.getElementById('payment_date');
+    const dateInput = document.getElementById('date');
     dateInput.addEventListener("click", () => {
         dateInput.setAttribute('type', 'date');
     })

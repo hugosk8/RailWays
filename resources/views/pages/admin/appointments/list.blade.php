@@ -28,7 +28,6 @@
                     <td>Client</td>
                     <td>Prestation</td>
                     <td>Date</td>
-                    <td>Heure</td>
                     <td>Statut</td>
                     <td>Actions</td>
                 </tr>
@@ -50,8 +49,7 @@
                             {{ $appointment->service->name }}
                         </a>
                     </td>
-                    <td>{{ $appointment->appointment_date }}</td>
-                    <td>{{ $appointment->appointment_time }}</td>
+                    <td>{{ $appointment->date }}</td>
                     <td>{{ $appointment->status }}</td>
                     <td class="action-buttons">
                         <button type="button" class="btn-delete" onclick="confirmDelete({{$appointment->id}})">Supprimer</button>

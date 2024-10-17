@@ -19,8 +19,8 @@
         <h1>Informations du paiment</h1>
         <p><strong>ID :</strong> {{ $payment->id }}</p> 
         <p><strong>Service :</strong> {{ $payment->appointment->service->name }} </p>
-        <p><strong>Montant :</strong> {{ $payment->amount }} minutes</p>
-        <p><strong>Statut :</strong> {{ $payment->payment_status }}</p>
+        <p><strong>Montant :</strong> {{ $payment->amount }} €</p>
+        <p><strong>Statut :</strong> {{ $payment->status }}</p>
         <p><strong>Date de création :</strong> {{ $payment->created_at->format('d/m/Y') }}</p>
         <p><strong>derniere modification :</strong> {{ $payment->updated_at->format('d/m/Y') }}</p>
     </div>

@@ -12,8 +12,8 @@ class Payment extends Model
     protected $fillable = [
         'appointment_id',
         'amount',
-        'payment_status',
-        'payment_date',
+        'status',
+        'date',
     ];
     
 
