@@ -9,6 +9,7 @@ use App\Http\Controllers\Admin\SlotController;
 use App\Http\Controllers\admin\UserController;
 use App\Http\Controllers\customer\CustomerController;
 use App\Http\Controllers\guest\GuestController;
+use App\Models\Appointment;
 use Illuminate\Support\Facades\Route;
 
 // For everybody
@@ -16,12 +17,14 @@ Route::group([], function () {
     Route::get('/', [GuestController::class, 'index'])->name('home');
     Route::get('/contact', [GuestController::class, 'contact'])->name('contact');
     Route::get('/prestations', [GuestController::class, 'prestations'])->name('prestations');
-    Route::get('/reservation', [GuestController::class, 'reservation'])->name('reservation');
 });
 
 // For connected users
-Route::middleware(['auth', 'verified', 'customer'])->group(function () {
+Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/dashboard', [CustomerController::class, 'index'])->name('dashboard');
+    Route::get('/reservation', [GuestController::class, 'reservation'])->name('reservation');
+    Route::get('/reserved-slots', [AppointmentController::class, 'getReservedSlots']);
+    Route::post('/store-appointment', [AppointmentController::class, 'store_from_customer'])->name('store-appointment');
     Route::prefix('profile')->group(function () {
         Route::get('/', [ProfileController::class, 'edit'])->name('profile.edit');
         Route::patch('/', [ProfileController::class, 'update'])->name('profile.update');
@@ -36,12 +39,10 @@ Route::prefix('admin')->middleware(['auth', 'admin'])->name('admin.')->group(fun
     Route::get('/payments/list', [PaymentController::class, 'list'])->name('payments.list');
     Route::get('/services/list', [ServiceController::class, 'list'])->name('services.list');
     Route::get('/appointments/list', [AppointmentController::class, 'list'])->name('appointments.list');
-    Route::get('/reserved-slots', [AppointmentController::class, 'getReservedSlots']);
     Route::resource('appointments', AppointmentController::class);
     Route::resource('payments', PaymentController::class);
     Route::resource('services', ServiceController::class);
     Route::resource('users', UserController::class);
-    Route::resource('slots', SlotController::class);
 });
 
 require __DIR__.'/auth.php';

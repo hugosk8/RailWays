@@ -374,7 +374,9 @@ section.carousel {
 }
 
 /* RESERVATION */
-.reservation-container {
-    text-align: left;
-    padding: 0 12%;
+form#appointment_data .service, form#appointment_data .date {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 25px;
 }

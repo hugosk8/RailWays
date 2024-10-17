@@ -74,4 +74,37 @@ class AppointmentController extends Controller
         $appointments = Appointment::with(['user', 'service'])->get();
         return view('pages.admin.appointments.list', compact('appointments'));
     }
+
+    public function getReservedSlots() {
+        $reservedSlots = Appointment::where('status', 'scheduled')
+            ->select('date')
+            ->distinct()
+            ->get();
+    
+        // Formater les dates pour les retourner dans un format utilisable
+        $reservedSlots = $reservedSlots->map(function($slot) {
+            return \Carbon\Carbon::parse($slot->date)->format('Y-m-d');
+        });
+    
+        return response()->json($reservedSlots);
+    }
+
+    public function store_from_customer(Request $request){
+        $validated = $request->validate([
+            'service_id' => 'required|exists:services,id',
+            'appointment_date' => 'required|date',
+        ]);
+
+        Appointment::create([
+            'user_id' => auth()->user()->id,
+            'service_id' => $validated['service_id'],
+            'date' => $validated['appointment_date'],
+            'status' => "scheduled"
+        ]);
+        if (auth()->user()->role === 'admin') {
+            return redirect()->route('admin.appointments.list')->with('success', 'Rendez-vous créé avec succès.');
+        } else {
+            return redirect()->route('dashboard')->with('success', 'Rendez-vous créé avec succès.');
+        }
+    }
 }
