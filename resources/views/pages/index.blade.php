@@ -7,43 +7,43 @@
 
 </div>
 <section class="head">
-    <h1>De quelle prestation avez vous besoin<br>aujourd'hui?</h1>
-    <div class="input">
+    <h1>Votre prochaine aventure commence ici</h1>
+    {{-- <div class="input">
         <input type="text" placeholder="Recherchez une prestation..">
         <button>Rechercher</button>
-    </div>
+    </div> --}}
 </section>
 
 <section class="presentation">
     <div class="title">
-        <h2>Nom du salon</h2>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet, similique?</p>
+        <h2>Explorez plus, vivez mieux</h2>
+        <p>Vivez des aventures exceptionnelles et redécouvrez l'Occitanie</p>
     </div>
     
     <div class="infos">
         <div class="img-container">
-            <img src="{{ asset('images/store-front.jpg') }}" alt="">
+            <img src="{{ asset('images/home/occitanie.jpg') }}" alt="">
         </div>
         <div class="text-container">
-            <h3>Lorem ipsum dolor sit amet consectetur.</h3>
-            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cumque magnam ratione hic, eaque quibusdam deserunt officia alias dolor, iste aliquid, qui repellendus recusandae aperiam eius. Voluptatibus, deserunt cum enim consectetur dolores, modi id nobis quia, facere natus omnis temporibus animi expedita debitis maxime in. Praesentium ipsum incidunt iusto quisquam! Deserunt, molestiae commodi necessitatibus delectus dolorem at sunt asperiores iure pariatur..</p>
+            <h3>Découvrez l'Occitanie autrement</h3>
+            <p>Notre agence vous propose des excursions uniques à travers les plus beaux sites naturels et culturels de la région. Que vous soyez amateurs de randonnées en montagne, de balades en bord de mer ou de découvertes culturelles, nous avons une expérience qui vous correspond. Chaque visite est conçue pour vous offrir une immersion totale, avec des guides passionnés et un cadre naturel exceptionnel.</p>
         </div>
     </div>
 
     <div class="infos">
         <div class="text-container">
-            <h3>Lorem ipsum dolor sit amet consectetur.</h3>
-            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cumque magnam ratione hic, eaque quibusdam deserunt officia alias dolor, iste aliquid, qui repellendus recusandae aperiam eius. Voluptatibus, deserunt cum enim consectetur dolores, modi id nobis quia, facere natus omnis temporibus animi expedita debitis maxime in. Praesentium ipsum incidunt iusto quisquam! Deserunt, molestiae commodi necessitatibus delectus dolorem at sunt asperiores iure pariatur..</p>
+            <h3>Des excursions sur mesure</h3>
+            <p>Nous proposons des prestations adaptées à vos envies : des circuits guidés en petits groupes, des visites privées ou encore des aventures en plein air. Laissez-vous séduire par la richesse de l'Occitanie, de ses vignobles à ses montagnes, en passant par ses plages et ses villages pittoresques. Nos services sont conçus pour vous garantir des moments inoubliables, que ce soit pour une journée de détente ou une aventure sportive.</p>
         </div>
         <div class="img-container">
-            <img src="{{ asset('images/store-inside.webp') }}" alt="">
+            <img src="{{ asset('images/home/occitanie2.jpg') }}" alt="">
         </div>
     </div>
 </section>
 
 <section class="services">
     <a href="{{ route('prestations') }}">
-        <h2>Nos préstations</h2>
+        <h2>Nos prestations</h2>
     </a>
 </section>
 

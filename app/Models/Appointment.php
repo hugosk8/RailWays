@@ -16,6 +16,9 @@ class Appointment extends Model
         'status'
     ];
     
+    protected $casts = [
+        'date' => 'datetime',
+    ];
 
     public function user()
     {

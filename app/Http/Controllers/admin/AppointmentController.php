@@ -3,10 +3,13 @@
 namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
+use App\Mail\AppointmentCancelConfirmation;
 use Illuminate\Http\Request;
 use App\Models\Appointment;
 use App\Models\Service;
 use App\Models\User;
+use App\Mail\AppointmentConfirmation;
+use Illuminate\Support\Facades\Mail;
 
 class AppointmentController extends Controller
 {
@@ -67,6 +70,8 @@ class AppointmentController extends Controller
         $appointment = Appointment::findOrFail($id);
         $appointment->delete();
 
+        Mail::to(auth()->user()->email)->send(new AppointmentCancelConfirmation($appointment));
+
         if (auth()->user()->role === 'admin') {
             return redirect()->route('admin.appointments.list')->with('success', "Rendez-vous supprimé avec succès.");
         } else {
@@ -85,7 +90,6 @@ class AppointmentController extends Controller
             ->distinct()
             ->get();
     
-        // Formater les dates pour les retourner dans un format utilisable
         $reservedSlots = $reservedSlots->map(function($slot) {
             return \Carbon\Carbon::parse($slot->date)->format('Y-m-d');
         });
@@ -98,13 +102,16 @@ class AppointmentController extends Controller
             'service_id' => 'required|exists:services,id',
             'appointment_date' => 'required|date',
         ]);
-
-        Appointment::create([
+    
+        $appointment = Appointment::create([
             'user_id' => auth()->user()->id,
             'service_id' => $validated['service_id'],
             'date' => $validated['appointment_date'],
             'status' => "scheduled"
         ]);
+    
+        Mail::to(auth()->user()->email)->send(new AppointmentConfirmation($appointment));
+    
         if (auth()->user()->role === 'admin') {
             return redirect()->route('admin.appointments.list')->with('success', 'Rendez-vous créé avec succès.');
         } else {
