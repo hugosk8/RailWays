@@ -1,4 +1,9 @@
-body {
+:root {
+    --main-color: #425d3d;
+    --secondary-color: #648e77;
+}
+
+body, html {
     margin: 0;
     padding: 0;
 }
@@ -35,18 +40,23 @@ button {
 
 /* Header */
 header {
-    background-color: #448238; 
-    padding: 20px; 
+    background-color: var(--main-color); 
+    padding: 20px 0; 
     display: flex;
     align-items: center;
+    justify-content: center;
+    position: fixed;
+    width: 100vw;
+    top: 0;
+    z-index: 999;
 }
 
 header div {
-    width: 15%;
+    width: 10%;
 }
 
 header nav {
-    width: 85%;
+    width: 80%;
 }
 
 header svg {
@@ -74,6 +84,25 @@ header nav ul li a:hover, header nav ul li:hover {
     color: white; 
 }
 
+/* burger menu */
+.burger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 5px;
+    background-color: var(--secondary-color);
+    border: none;
+    padding: 7px;
+    border-radius: 6px;
+}
+
+.burger span {
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    transition: 0.3s;
+}
+
 /* Dropdown Styling */
 .nav-item {
     position: relative;
@@ -84,7 +113,7 @@ header nav ul li a:hover, header nav ul li:hover {
     position: absolute;
     top: 100%;
     left: 0;
-    background-color: #8046b9;
+    background-color: var(--main-color);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     padding: 0;
     list-style: none;
@@ -109,7 +138,7 @@ header nav ul li a:hover, header nav ul li:hover {
 }
 
 .dropdown-menu li:hover {
-    background-color: #9b5ed7;
+    background-color: var(--secondary-color);
 }
 
 .nav-item:hover .dropdown-menu {
@@ -118,9 +147,8 @@ header nav ul li a:hover, header nav ul li:hover {
 
 /* Main */
 .container {
-    padding: 20px;
-    padding-top: 0;
     text-align: center;
+    padding: 130px 20px 20px 20px;
 }
 
 /* Form */
@@ -139,7 +167,7 @@ header nav ul li a:hover, header nav ul li:hover {
     margin-bottom: 10px;
 }
 
-.form-group input, .form-group textarea, .form-group select {
+input, textarea, select {
     padding: 10px;
     margin-top: 10px;
     border: 1px solid #ccc;
@@ -148,7 +176,7 @@ header nav ul li a:hover, header nav ul li:hover {
 
 form .btn {
     color: white;
-    background-color: #8046b9;
+    background-color: var(--main-color);
     border: none;
     padding: 7px;
     border-radius: 6px;
@@ -156,7 +184,7 @@ form .btn {
 }
 
 form .btn:hover {
-    background-color: #a865eb;
+    background-color: #5d8a55;
 }
 
 .error-message {
@@ -195,7 +223,7 @@ form .btn:hover {
     margin-bottom: 20px;
     text-align: center;
     font-weight: bold;
-    border-bottom: 2px solid #8046b9;
+    border-bottom: 2px solid var(--main-color);
     padding-bottom: 10px;
 }
 
@@ -219,16 +247,18 @@ form .btn:hover {
 /* Home Page */
 section.head {
     height: 500px;
-    background-color: rgb(173, 230, 199);
+    background-color: var(--secondary-color);
     display: flex;
-    justify-content: center;
+    justify-content: end;
     align-items: center;
     flex-direction: column;
+    margin-bottom: 80px;
 }
 
 section.head h1 {
     color: white;
     font-size: 50px;
+    margin-bottom: 185px;
 }
 
 section.head .input {
@@ -258,6 +288,8 @@ section.head .input button {
 
 section.presentation {
     padding: 0 5%;
+    max-width: 1400px;
+    margin: auto;
 }
 
 section.presentation .title {
@@ -266,20 +298,27 @@ section.presentation .title {
 
 section.presentation h2 {
     font-size: 36px;
+    color: var(--main-color);
 }
 
 section.presentation .infos {
     display: flex;
     flex-direction: row;
-    margin-top: 100px;
+    margin-top: 40px;
 }
 
 section.presentation .infos div {
     width: 50%;
 }
 
+section.presentation .infos .img-container {
+    display: flex;
+    justify-content: center;align-items: center;
+}
+
 section.presentation .infos .img-container img {
-    width: 90%;
+    width: 75%;
+    border-radius: 12px;
 }
 
 section.presentation .infos .text-container {
@@ -294,22 +333,31 @@ section.presentation .infos .text-container p {
     line-height: 30px;
 }
 
+section.presentation .infos .text-container h3 {
+    color: var(--main-color);
+}
+
 section.services {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: rgb(173, 230, 199);
+    background-color: var(--secondary-color);
     color: white;
     height: 200px;
     margin-top: 80px;
 }
 
+section.services h2 {
+    color: white;
+    font-size: 28px;
+}
+
 section.services h2:hover {
-    color: bisque;
+    color: var(--main-color);
 }
 
 section.carousel {
-    margin-top: 80px;
+    margin: 80px 0;
 }
 
 .carousel {
@@ -361,7 +409,7 @@ section.carousel {
 }
 
 .services-container .card .cta {
-    background-color: rgb(107, 28, 160);
+    background-color: var(--main-color);
     color: white;
     position: absolute;
     bottom: 0;
@@ -371,7 +419,7 @@ section.carousel {
 }
 
 .services-container .card .cta:hover {
-    background-color: rgb(160, 66, 222);
+    background-color: var(--secondary-color);
 }
 
 /* RESERVATION */
@@ -380,6 +428,11 @@ form#appointment_data .service, form#appointment_data .date {
     flex-direction: column;
     align-items: center;
     margin-bottom: 25px;
+}
+
+form#appointment_data .btn {
+    width: fit-content;
+    padding: 8px 18px;
 }
 
 /* Tables */
@@ -418,16 +471,6 @@ tbody tr td {
 }
 tbody tr:hover {
     background-color: #f1f1f1;
-}
-
-@media (max-width: 768px) {
-    table {
-        font-size: 14px;
-    }
-
-    tbody tr td {
-        padding: 10px;
-    }
 }
 
 /* Action Buttons */
@@ -525,4 +568,110 @@ tbody tr:hover {
 
 .appointments .card button {
     width: fit-content;
+}
+
+/* FlatPicker */
+.flatpickr-day.inRange, .flatpickr-day.prevMonthDay.inRange, .flatpickr-day.nextMonthDay.inRange, .flatpickr-day.today.inRange, .flatpickr-day.prevMonthDay.today.inRange, .flatpickr-day.nextMonthDay.today.inRange, .flatpickr-day:hover, .flatpickr-day.prevMonthDay:hover, .flatpickr-day.nextMonthDay:hover, .flatpickr-day:focus, .flatpickr-day.prevMonthDay:focus, .flatpickr-day.nextMonthDay:focus {
+    background: var(--secondary-color);
+    color: white;
+}
+
+.flatpickr-months .flatpickr-prev-month:hover svg, .flatpickr-months .flatpickr-next-month:hover svg {
+    fill: var(--secondary-color);
+}
+
+@media (max-width: 1100px) {
+    section.head h1 {
+        font-size: 35px;
+    }
+
+    section.presentation h2 {
+        font-size: 28px;
+    }
+}
+
+@media (max-width: 768px) {
+    /* burger menu */
+    header nav {
+        display: flex;
+        justify-content: flex-end;
+    }
+
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        background-color: var(--main-color);
+        position: absolute;
+        top: 60px;
+        right: 0;
+        width: 100%;
+        text-align: center;
+        padding-bottom: 20px;
+    }
+
+    .burger {
+        display: flex;
+    }
+
+    .nav-active {
+        display: flex;
+    }
+
+    section.head {
+        height: 400px;
+    }
+
+    section.head h1 {
+        font-size: 30px;
+        margin-bottom: 150px;
+    }
+
+    section.presentation .infos .img-container img {
+        width: 85%;
+    }
+
+    .text-container p {
+        font-size: 12px;
+        line-height: 20px !important;
+    }
+
+    section.services h2 {
+        font-size: 24px;
+    }
+
+    table {
+        font-size: 14px;
+    }
+
+    tbody tr td {
+        padding: 10px;
+    }
+}
+
+@media (max-width: 576px) {
+    section.head h1 {
+        text-align: center;
+        margin: 0 10vw 100px 10vw;
+    }
+
+    section.presentation .infos {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    section.presentation .infos.first {
+        flex-direction: column-reverse;
+    }
+
+    section.presentation .infos div {
+        width: 90%;
+    }
+
+    section.presentation .infos h3 {
+        text-align: center;
+    }
+
+    section.services h2 {
+        text-align: center;
+    }
 }

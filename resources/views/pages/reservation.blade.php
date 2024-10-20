@@ -20,7 +20,7 @@
 
         <!-- Sélection de la prestation -->
         <div class="service">
-            <label for="service_id">Choisir une prestation</label>
+            <label for="service_id">Choisissez votre prestation</label>
             <select id="service_id" name="service_id" required>
                 <option selected disabled value="">Choisissez votre prestation</option>
                 @foreach ($services as $service)
@@ -35,7 +35,7 @@
             <input type="text" style="display: none" id="appointment_date" name="appointment_date">
         </div>
 
-        <button type="submit">Réserver</button>
+        <button class="btn" type="submit">Réserver</button>
     </form>
 </div>
 @endsection

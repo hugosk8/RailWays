@@ -30,7 +30,7 @@
             </div>
             
             <div class="form-group">
-                <label for="service_id">Préstation :</label>
+                <label for="service_id">Prestation :</label>
                 <select name="service_id" id="service_id">
                     @foreach ($services as $service)
                         <option value="{{ $service->id }}">{{ $service->name }}</option>

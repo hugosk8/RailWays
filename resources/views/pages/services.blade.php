@@ -4,7 +4,7 @@
 
 @section('content')
 <div class="container">
-    <h1>Nos Préstations</h1>
+    <h1>Nos Prestations</h1>
 
     <div class="services-container">
         @foreach ($services as $service)

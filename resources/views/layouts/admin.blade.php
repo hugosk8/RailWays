@@ -16,7 +16,7 @@
         <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
         
         <!-- Scripts -->
-        @vite(['resources/css/admin/style.css','resources/css/common.css', 'resources/js/app.js', 'resources/js/slick-carousel.js'])
+        @vite(['resources/css/common.css', 'resources/js/app.js', 'resources/js/slick-carousel.js', 'resources/js/burger-menu.js'])
     </head>
     <body>
 

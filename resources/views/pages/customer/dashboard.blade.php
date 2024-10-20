@@ -32,7 +32,7 @@
                 @foreach ($appointments as $appointment)
                     <div class="card">
                         <h3>{{ $appointment->service->name }}</h3>
-                        <span>Date : {{ $appointment->date }}</span>
+                        <span>Date : {{ $appointment->date->format('d/m//Y') }}</span>
                         <button type="button" class="btn-delete" onclick="confirmDelete({{$appointment->id}})">Annuler</button>
                     </div>
                 @endforeach

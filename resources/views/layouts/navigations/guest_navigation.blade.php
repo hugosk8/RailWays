@@ -1,5 +1,5 @@
 <nav x-data="{ open: false }">
-    <ul>
+    <ul class="nav-links">
         <li>
             <x-nav-link :href="route('home')" class="{{ request()->routeIs('home') ? 'active-link' : '' }}">
                 {{ __('Accueil') }}
@@ -21,4 +21,9 @@
             </x-nav-link>
         </li>
     </ul>
+    <button class="burger">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
 </nav>

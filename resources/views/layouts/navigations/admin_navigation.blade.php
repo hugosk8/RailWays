@@ -1,5 +1,5 @@
 <nav x-data="{ open: false }">
-    <ul>
+    <ul class="nav-links">
         <li>
             <x-nav-link :href="route('home')" class="{{ request()->routeIs('home') ? 'active-link' : '' }}">
                 {{ __('Accueil') }}
@@ -24,11 +24,6 @@
             <x-nav-link :href="route('admin.appointments.list')" class="{{ request()->routeIs('admin.appointments.list', 'admin.appointments.create') ? 'active-link' : '' }}">
                 {{ __('Rendez-vous') }}
             </x-nav-link>
-        </li>
-        <li class="{{ request()->routeIs('admin.payments.list', 'admin.payments.create') ? 'nav-item dropdown active-link' : 'nav-item dropdown' }}">
-            <x-nav-link :href="route('admin.payments.list')" class="{{ request()->routeIs('admin.payments.list', 'admin.payments.create') ? 'active-link' : '' }}">
-                {{ __('Paiements') }}
-            </x-nav-link>
             {{-- <ul class="dropdown-menu">
                 <li>
                     <x-nav-link :href="route('admin.payments.create')" class="{{ request()->routeIs('admin.payments.create') ? 'active-link' : '' }}">
@@ -48,4 +43,9 @@
             </form>
         </li>
     </ul>
+    <button class="burger">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
 </nav>
